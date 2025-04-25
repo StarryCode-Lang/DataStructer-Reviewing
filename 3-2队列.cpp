@@ -1,18 +1,7 @@
 #include <iostream>
 #include <memory>
+#include "LinkQueue.h"
 using namespace std;
-
-// 定义队列节点结构
-struct LinkNode {
-    int data{}; // 数据域，默认初始化为 0
-    shared_ptr<LinkNode> next; // 下一节点智能指针
-};
-
-// 定义队列结构
-struct LinkQueue {
-    shared_ptr<LinkNode> front; // 队首指针（头节点）
-    shared_ptr<LinkNode> rear; // 队尾指针
-};
 
 // 初始化队列（带头节点的空队列）
 void InitQueue(LinkQueue &Q) {
@@ -28,7 +17,7 @@ bool IsEmpty(const LinkQueue &Q) {
 }
 
 // 入队操作（在队尾插入）
-bool EnQueue(LinkQueue &Q, int value) {
+bool EnQueue(LinkQueue &Q, const BiTree &value) {
     auto newNode = make_shared<LinkNode>(); // 创建新节点
     newNode->data = value;
     newNode->next = nullptr;
@@ -39,7 +28,7 @@ bool EnQueue(LinkQueue &Q, int value) {
 }
 
 // 出队操作（从队首删除）
-bool DeQueue(LinkQueue &Q, int &value) {
+bool DeQueue(LinkQueue &Q, BiTree &value) {
     if (IsEmpty(Q)) {
         cout << "队列为空，无法出队" << endl;
         return false;
@@ -56,7 +45,7 @@ bool DeQueue(LinkQueue &Q, int &value) {
 }
 
 // 获取队首元素（不删除）
-bool GetFront(const LinkQueue &Q, int &value) {
+bool GetFront(const LinkQueue &Q, BiTree value) {
     if (IsEmpty(Q)) {
         cout << "队列为空，无队首元素" << endl;
         return false;
@@ -89,38 +78,38 @@ void ClearQueue(LinkQueue &Q) {
 }
 
 // 主函数测试
-int main() {
-    LinkQueue Q;
-
-    // 测试 1：初始化和判空
-    cout << "=== 测试 1：初始化和判空 ===" << endl;
-    InitQueue(Q);
-    cout << "队列是否为空: " << (IsEmpty(Q) ? "是" : "否") << endl;
-
-    // 测试 2：入队操作
-    cout << "\n=== 测试 2：入队操作 ===" << endl;
-    EnQueue(Q, 1);
-    EnQueue(Q, 2);
-    EnQueue(Q, 3);
-    PrintQueue(Q);
-
-    // 测试 3：获取队首元素
-    cout << "\n=== 测试 3：获取队首元素 ===" << endl;
-    int frontValue;
-    GetFront(Q, frontValue);
-
-    // 测试 4：出队操作
-    cout << "\n=== 测试 4：出队操作 ===" << endl;
-    int dequeuedValue;
-    DeQueue(Q, dequeuedValue);
-    PrintQueue(Q);
-    DeQueue(Q, dequeuedValue);
-    PrintQueue(Q);
-
-    // 测试 5：清空队列
-    cout << "\n=== 测试 5：清空队列 ===" << endl;
-    ClearQueue(Q);
-    PrintQueue(Q);
-
-    return 0;
-}
+// int main() {
+//     LinkQueue Q;
+//
+//     // 测试 1：初始化和判空
+//     cout << "=== 测试 1：初始化和判空 ===" << endl;
+//     InitQueue(Q);
+//     cout << "队列是否为空: " << (IsEmpty(Q) ? "是" : "否") << endl;
+//
+//     // 测试 2：入队操作
+//     cout << "\n=== 测试 2：入队操作 ===" << endl;
+//     EnQueue(Q, 1);
+//     EnQueue(Q, 2);
+//     EnQueue(Q, 3);
+//     PrintQueue(Q);
+//
+//     // 测试 3：获取队首元素
+//     cout << "\n=== 测试 3：获取队首元素 ===" << endl;
+//     int frontValue;
+//     GetFront(Q, frontValue);
+//
+//     // 测试 4：出队操作
+//     cout << "\n=== 测试 4：出队操作 ===" << endl;
+//     int dequeuedValue;
+//     DeQueue(Q, dequeuedValue);
+//     PrintQueue(Q);
+//     DeQueue(Q, dequeuedValue);
+//     PrintQueue(Q);
+//
+//     // 测试 5：清空队列
+//     cout << "\n=== 测试 5：清空队列 ===" << endl;
+//     ClearQueue(Q);
+//     PrintQueue(Q);
+//
+//     return 0;
+// }
