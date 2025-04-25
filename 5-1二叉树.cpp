@@ -38,30 +38,16 @@ void PostOrder(const BiTree &T) {
 
 // 层次遍历实现
 void LevelOrder(const BiTree &T) {
-    if (!T)
-        return; // 空树直接返回
-
-    LinkQueue Q; // 创建队列
-    InitQueue(Q); // 初始化队列
-
-    // 根节点入队
+    LinkQueue Q;
+    InitQueue(Q);
+    BiTree p;
     EnQueue(Q, T);
-
-    // 队列不为空时循环处理
-    BiTree node;
     while (!IsEmpty(Q)) {
-        // 出队一个节点并访问
-        DeQueue(Q, node);
-        visit(node);
-
-        // 左子树不为空，入队
-        if (node->lclild) {
-            EnQueue(Q, node->lclild);
-        }
-
-        // 右子树不为空，入队
-        if (node->rclild) {
-            EnQueue(Q, node->rclild);
-        }
+        DeQueue(Q, p);
+        visit(p);
+        if (p->lclild)
+            EnQueue(Q, p->lclild);
+        if (p->rclild)
+            EnQueue(Q, p->rclild);
     }
 }
