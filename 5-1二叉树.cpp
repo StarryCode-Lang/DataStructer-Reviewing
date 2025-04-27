@@ -17,7 +17,7 @@ typedef struct ThreadNode {
 using BiTree = shared_ptr<BiNode>;
 using ThreadTree = shared_ptr<ThreadNode>;
 
-void visit(const BiTree &T) { cout << T->data << " "; }
+void visit(const auto &T) { cout << T->data << " "; }
 
 void InThread(ThreadTree &p, ThreadTree &pre) {
     if (p) {
@@ -32,6 +32,45 @@ void InThread(ThreadTree &p, ThreadTree &pre) {
         }
         pre = p;
         InThread(p->rchild, pre);
+    }
+}
+
+void CreateInThread(ThreadTree &T) {
+    ThreadTree pre = nullptr;
+    if (T) {
+        InThread(T, pre);
+        pre->rtag = 1;
+        pre->rchild = nullptr;
+    }
+}
+
+shared_ptr<ThreadNode> FirstInNode(shared_ptr<ThreadNode> p) {
+    while (p->ltag == 0)
+        p = p->lchild;
+    return p;
+}
+
+shared_ptr<ThreadNode> LastInNode(shared_ptr<ThreadNode> p) {
+    while (p->rtag == 0)
+        p = p->rchild;
+    return p;
+}
+
+shared_ptr<ThreadNode> NextInOrder(const shared_ptr<ThreadNode> &p) {
+    if (p->rtag == 1)
+        return p->rchild;
+    return NextInOrder(p->rchild);
+}
+
+shared_ptr<ThreadNode> PrevInOrder(const shared_ptr<ThreadNode> &p) {
+    if (p->ltag == 1)
+        return p->lchild;
+    return PrevInOrder(p->lchild);
+}
+
+void ThreadInOrder(const shared_ptr<ThreadNode> &t) {
+    for (shared_ptr<ThreadNode> p = FirstInNode(t); t; p = NextInOrder(t)) {
+        visit(p);
     }
 }
 
