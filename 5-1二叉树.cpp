@@ -8,7 +8,14 @@ typedef struct BiNode {
     shared_ptr<BiNode> lclild, rclild;
 } BiNode;
 
+typedef struct ThreadNode {
+    int data_t;
+    shared_ptr<ThreadNode> lclild, rclild;
+    int ltag, rtag;
+} ThreadNode;
+
 using BiTree = shared_ptr<BiNode>;
+using ThreadTree = shared_ptr<ThreadNode>;
 
 void visit(const BiTree &T) { cout << T->data << " "; }
 
@@ -51,3 +58,6 @@ void LevelOrder(const BiTree &T) {
             EnQueue(Q, p->rclild);
     }
 }
+
+
+int main() {}
