@@ -5,12 +5,12 @@ using namespace std;
 
 typedef struct BiNode {
     int data;
-    shared_ptr<BiNode> lclild, rclild;
+    shared_ptr<BiNode> lchild, rchild;
 } BiNode;
 
 typedef struct ThreadNode {
     int data_t;
-    shared_ptr<ThreadNode> lclild, rclild;
+    shared_ptr<ThreadNode> lchild, rchild;
     int ltag, rtag;
 } ThreadNode;
 
@@ -19,26 +19,42 @@ using ThreadTree = shared_ptr<ThreadNode>;
 
 void visit(const BiTree &T) { cout << T->data << " "; }
 
+void InThread(ThreadTree &p, ThreadTree &pre) {
+    if (p) {
+        InThread(p->lchild, pre);
+        if (!p->lchild) {
+            p->lchild = pre;
+            p->ltag = 1;
+        }
+        if (pre && !pre->rchild) {
+            pre->rchild = p;
+            pre->rtag = 1;
+        }
+        pre = p;
+        InThread(p->rchild, pre);
+    }
+}
+
 void PreOrder(const BiTree &T) {
     if (T) {
         visit(T);
-        PreOrder(T->lclild);
-        PreOrder(T->rclild);
+        PreOrder(T->lchild);
+        PreOrder(T->rchild);
     }
 }
 
 void InOrder(const BiTree &T) {
     if (T) {
-        InOrder(T->lclild);
+        InOrder(T->lchild);
         visit(T);
-        InOrder(T->rclild);
+        InOrder(T->rchild);
     }
 }
 
 void PostOrder(const BiTree &T) {
     if (T) {
-        PostOrder(T->lclild);
-        PostOrder(T->rclild);
+        PostOrder(T->lchild);
+        PostOrder(T->rchild);
         visit(T);
     }
 }
@@ -52,10 +68,10 @@ void LevelOrder(const BiTree &T) {
     while (!IsEmpty(Q)) {
         DeQueue(Q, p);
         visit(p);
-        if (p->lclild)
-            EnQueue(Q, p->lclild);
-        if (p->rclild)
-            EnQueue(Q, p->rclild);
+        if (p->lchild)
+            EnQueue(Q, p->lchild);
+        if (p->rchild)
+            EnQueue(Q, p->rchild);
     }
 }
 
