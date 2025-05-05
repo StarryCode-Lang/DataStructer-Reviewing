@@ -19,6 +19,7 @@ using ThreadTree = shared_ptr<ThreadNode>;
 
 void visit(const auto &T) { cout << T->data << " "; }
 
+// 线索二叉树
 void InThread(ThreadTree &p, ThreadTree &pre) {
     if (p) {
         InThread(p->lchild, pre);
