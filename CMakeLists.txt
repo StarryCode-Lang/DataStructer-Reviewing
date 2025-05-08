@@ -17,4 +17,5 @@ add_executable(DSCPP 2-2线性表的顺序表示.cpp
         LinkQueue.h
         6-2图的遍历.cpp
         6-3最小生成树.cpp
+        6-4最短路径.cpp
 )
