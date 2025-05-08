@@ -12,4 +12,5 @@ add_executable(DSCPP 2-2线性表的顺序表示.cpp
         4串的定义和KMP.cpp
         5-1二叉树.cpp
         5-2并查集.cpp
+        6-1图的定义和遍历.cpp
 )
