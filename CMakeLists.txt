@@ -15,4 +15,5 @@ add_executable(DSCPP 2-2线性表的顺序表示.cpp
         6-1图的定义和基本操作.cpp
         GraphOperation.h
         LinkQueue.h
+        6-2图的遍历.cpp
 )

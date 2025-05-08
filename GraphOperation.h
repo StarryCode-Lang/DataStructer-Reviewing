@@ -9,70 +9,81 @@ using namespace std;
 #define INFINITY numeric_limits<int>::max()
 typedef char VertexType; // 顶点的数据类型
 typedef int EdgeType; // 边的权值类型
+inline bool visited[MaxVertexNum]; // 访问标记数组
 
-// 结构体定义
+class Graph {
+public:
+    int vexnum; // 顶点数
+    int arcnum; // 边/弧数（无向图/有向图）
+    virtual ~Graph() = default;
+};
+
 // 1. 邻接矩阵表示法
-typedef struct {
-    VertexType vex[MaxVertexNum]; // 顶点数组
-    EdgeType edge[MaxVertexNum][MaxVertexNum]; // 邻接矩阵，存储边的权值
-    int vexnum, arcnum; // 图的当前顶点数和边数
-} MGraph;
+struct MGraph : public Graph {
+    VertexType vex[MaxVertexNum];
+    EdgeType edge[MaxVertexNum][MaxVertexNum];
+};
 
 // 2. 邻接表表示法
-typedef struct ArcNode { // 边表节点
-    int adjvex; // 该边所指向的顶点下标
-    struct ArcNode *nextarc; // 指向下一条边的指针
-    EdgeType weight; // 边的权值
-} ArcNode;
+struct ArcNode {
+    int adjvex;
+    ArcNode *nextarc;
+    EdgeType weight;
+};
 
-typedef struct VNode { // 顶点表节点
-    VertexType data; // 顶点信息
-    ArcNode *firstarc; // 指向第一条依附该顶点的边
-} VNode, AdjList[MaxVertexNum];
+struct VNode {
+    VertexType data;
+    ArcNode *firstarc;
+};
 
-typedef struct {
-    AdjList vertices; // 顶点表
-    int vexnum, arcnum; // 图的当前顶点数和边数
-} ALGraph;
+struct ALGraph : public Graph {
+    VNode vertices[MaxVertexNum];
+};
 
 // 3. 十字链表表示法
-typedef struct ArcBox { // 弧结点
-    int tailvex; // 弧尾顶点编号
-    int headvex; // 弧头顶点编号
-    struct ArcBox *hlink; // 指向弧头相同的下一条弧
-    struct ArcBox *tlink; // 指向弧尾相同的下一条弧
-    EdgeType weight; // 弧的权值
-} ArcBox;
+struct ArcBox {
+    int tailvex, headvex;
+    ArcBox *hlink, *tlink;
+    EdgeType weight;
+};
 
-typedef struct OLVNode { // 顶点结点
-    VertexType data; // 顶点信息
-    ArcBox *firstin; // 指向以该顶点为弧头的第一条弧
-    ArcBox *firstout; // 指向以该顶点为弧尾的第一条弧
-} OLVNode;
+struct OLVNode {
+    VertexType data;
+    ArcBox *firstin, *firstout;
+};
 
-typedef struct {
-    OLVNode xlist[MaxVertexNum]; // 顶点数组
-    int vexnum, arcnum; // 顶点数和弧数
-} OLGraph;
+struct OLGraph : public Graph {
+    OLVNode xlist[MaxVertexNum];
+};
 
 // 4. 邻接多重表表示法
-typedef struct EdgeNode {
-    int ivex, jvex; // 该边依附的两个顶点的下标
-    struct EdgeNode *ilink, *jlink; // 分别指向依附于ivex和jvex的下一条边
-    EdgeType weight; // 边的权值
-    bool visited; // 边是否被访问过，用于遍历
-} EdgeNode;
+struct EdgeNode {
+    int ivex, jvex;
+    EdgeNode *ilink, *jlink;
+    EdgeType weight;
+    bool visited;
+};
 
-typedef struct AMLNode {
-    VertexType data; // 顶点信息
-    EdgeNode *firstedge; // 指向依附于该顶点的第一条边
-} AMLNode;
+struct AMLNode {
+    VertexType data;
+    EdgeNode *firstedge;
+};
 
-typedef struct {
-    AMLNode adjmulist[MaxVertexNum]; // 顶点数组
-    int vexnum, edgenum; // 顶点数和边数
-} AMLGraph;
+struct AMLGraph : public Graph {
+    AMLNode adjmulist[MaxVertexNum];
+    int edgenum; // 多重表特有，arcnum可用作边数也可省略
+};
 
+void visit(const MGraph &G, int i);
+void visit(const ALGraph &G, int i);
+
+// 遍历
+void BFSTraverse(const Graph &G);
+void BFS(const MGraph &G, int u);
+void BFS(const ALGraph &G, int u);
+void DFSTraverse(const Graph &G);
+void DFS(const MGraph &G, int i);
+void DFS(const ALGraph &G, int i);
 
 // 邻接矩阵
 void InitMGraph(MGraph &G);
@@ -133,6 +144,12 @@ int NextNeighbor_AML(const AMLGraph &G, VertexType x, VertexType y);
 EdgeType Get_edge_value_AML(const AMLGraph &G, VertexType x, VertexType y);
 bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v);
 void PrintAMLGraph(const AMLGraph &G);
+
+// 通用打印函数模板
+void PrintGraph(const MGraph &G);
+void PrintGraph(const ALGraph &G);
+void PrintGraph(const OLGraph &G);
+void PrintGraph(const AMLGraph &G);
 
 
 #endif // GRAPHOPERATION_H
