@@ -8,21 +8,10 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include "GraphOperation.h"
 
-using namespace std;
-
-#define MaxVertexNum 100
-#define INFINITY numeric_limits<int>::max()
-typedef char VertexType; // 顶点的数据类型
-typedef int EdgeType; // 边的权值类型
 
 // =============== 1. 邻接矩阵表示法 ===============
-typedef struct {
-    VertexType vex[MaxVertexNum]; // 顶点数组
-    EdgeType edge[MaxVertexNum][MaxVertexNum]; // 邻接矩阵，存储边的权值
-    int vexnum, arcnum; // 图的当前顶点数和边数
-} MGraph;
-
 // 初始化邻接矩阵表示的图
 void InitMGraph(MGraph &G) {
     G.vexnum = 0;
@@ -144,7 +133,7 @@ bool DeleteVertex_M(MGraph &G, VertexType x) {
 }
 
 // AddEdge(G,x,y): 如果无向边(x,y)或有向边<x,y>不存在，则向图G中添加该边
-bool AddEdge_M(MGraph &G, VertexType x, VertexType y, EdgeType weight = 1) {
+bool AddEdge_M(MGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
@@ -196,8 +185,8 @@ int FirstNeighbor_M(const MGraph &G, VertexType x) {
     return -1; // 没有邻接点
 }
 
-// NextNeighbor(G,x,y): 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，
-// 若y是x的最后一个邻接点，则返回-1
+// NextNeighbor(G,x,y):
+// 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，若y是x的最后一个邻接点，则返回-1
 int NextNeighbor_M(const MGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
@@ -251,22 +240,6 @@ bool Set_edge_value_M(MGraph &G, VertexType x, VertexType y, EdgeType v) {
 }
 
 // =============== 2. 邻接表表示法 ===============
-typedef struct ArcNode { // 边表节点
-    int adjvex; // 该边所指向的顶点下标
-    struct ArcNode *nextarc; // 指向下一条边的指针
-    EdgeType weight; // 边的权值
-} ArcNode;
-
-typedef struct VNode { // 顶点表节点
-    VertexType data; // 顶点信息
-    ArcNode *firstarc; // 指向第一条依附该顶点的边
-} VNode, AdjList[MaxVertexNum];
-
-typedef struct {
-    AdjList vertices; // 顶点表
-    int vexnum, arcnum; // 图的当前顶点数和边数
-} ALGraph;
-
 // 初始化邻接表表示的图
 void InitALGraph(ALGraph &G) {
     G.vexnum = 0;
@@ -409,7 +382,7 @@ bool DeleteVertex_AL(ALGraph &G, VertexType x) {
 }
 
 // AddEdge(G,x,y): 如果无向边(x,y)或有向边<x,y>不存在，则向图G中添加该边
-bool AddEdge_AL(ALGraph &G, VertexType x, VertexType y, EdgeType weight = 1) {
+bool AddEdge_AL(ALGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
@@ -486,8 +459,8 @@ int FirstNeighbor_AL(const ALGraph &G, VertexType x) {
     return -1; // 没有邻接点
 }
 
-// NextNeighbor(G,x,y): 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，
-// 若y是x的最后一个邻接点，则返回-1
+// NextNeighbor(G,x,y):
+// 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，若y是x的最后一个邻接点，则返回-1
 int NextNeighbor_AL(const ALGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
@@ -567,25 +540,6 @@ bool Set_edge_value_AL(ALGraph &G, VertexType x, VertexType y, EdgeType v) {
 }
 
 // =============== 3. 十字链表表示法 ===============
-typedef struct ArcBox { // 弧结点
-    int tailvex; // 弧尾顶点编号
-    int headvex; // 弧头顶点编号
-    struct ArcBox *hlink; // 指向弧头相同的下一条弧
-    struct ArcBox *tlink; // 指向弧尾相同的下一条弧
-    EdgeType weight; // 弧的权值
-} ArcBox;
-
-typedef struct OLVNode { // 顶点结点
-    VertexType data; // 顶点信息
-    ArcBox *firstin; // 指向以该顶点为弧头的第一条弧
-    ArcBox *firstout; // 指向以该顶点为弧尾的第一条弧
-} OLVNode;
-
-typedef struct {
-    OLVNode xlist[MaxVertexNum]; // 顶点数组
-    int vexnum, arcnum; // 顶点数和弧数
-} OLGraph;
-
 // 初始化十字链表表示的图
 void InitOLGraph(OLGraph &G) {
     G.vexnum = 0;
@@ -752,7 +706,7 @@ bool DeleteVertex_OL(OLGraph &G, VertexType x) {
 }
 
 // AddEdge(G,x,y): 如果有向边<x,y>不存在，则向图G中添加该边
-bool AddEdge_OL(OLGraph &G, VertexType x, VertexType y, EdgeType weight = 1) {
+bool AddEdge_OL(OLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
@@ -851,8 +805,8 @@ int FirstNeighbor_OL(const OLGraph &G, VertexType x) {
     return -1; // 没有邻接点
 }
 
-// NextNeighbor(G,x,y): 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，
-// 若y是x的最后一个邻接点，则返回-1
+// NextNeighbor(G,x,y):
+// 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，若y是x的最后一个邻接点，则返回-1
 int NextNeighbor_OL(const OLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
@@ -932,23 +886,6 @@ bool Set_edge_value_OL(OLGraph &G, VertexType x, VertexType y, EdgeType v) {
 }
 
 // =============== 4. 邻接多重表表示法 ===============
-typedef struct EdgeNode {
-    int ivex, jvex; // 该边依附的两个顶点的下标
-    struct EdgeNode *ilink, *jlink; // 分别指向依附于ivex和jvex的下一条边
-    EdgeType weight; // 边的权值
-    bool visited; // 边是否被访问过，用于遍历
-} EdgeNode;
-
-typedef struct AMLNode {
-    VertexType data; // 顶点信息
-    EdgeNode *firstedge; // 指向依附于该顶点的第一条边
-} AMLNode;
-
-typedef struct {
-    AMLNode adjmulist[MaxVertexNum]; // 顶点数组
-    int vexnum, edgenum; // 顶点数和边数
-} AMLGraph;
-
 // 初始化邻接多重表表示的图
 void InitAMLGraph(AMLGraph &G) {
     G.vexnum = 0;
@@ -1114,7 +1051,7 @@ bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
 }
 
 // AddEdge(G,x,y): 如果无向边(x,y)不存在，则向图G中添加该边
-bool AddEdge_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType weight = 1) {
+bool AddEdge_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
@@ -1225,8 +1162,8 @@ int FirstNeighbor_AML(const AMLGraph &G, VertexType x) {
     return -1; // 没有邻接点
 }
 
-// NextNeighbor(G,x,y): 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，
-// 若y是x的最后一个邻接点，则返回-1
+// NextNeighbor(G,x,y):
+// 假设图G中顶点y是顶点x的一个邻接点，返回除y外顶点x的下一个邻接点的顶点号，若y是x的最后一个邻接点，则返回-1
 int NextNeighbor_AML(const AMLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
@@ -1311,8 +1248,8 @@ bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v) {
     return AddEdge_AML(G, x, y, v);
 }
 
-// 打印邻接矩阵
-void PrintMGraph(const MGraph &G) {
+// 通用打印函数模板
+void PrintGraph(const MGraph &G) {
     cout << "顶点：";
     for (int i = 0; i < G.vexnum; ++i)
         cout << G.vex[i] << " ";
@@ -1328,8 +1265,7 @@ void PrintMGraph(const MGraph &G) {
     }
 }
 
-// 打印邻接表
-void PrintALGraph(const ALGraph &G) {
+void PrintGraph(const ALGraph &G) {
     cout << "邻接表：" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
         cout << G.vertices[i].data << ": ";
@@ -1342,8 +1278,7 @@ void PrintALGraph(const ALGraph &G) {
     }
 }
 
-// 打印十字链表
-void PrintOLGraph(const OLGraph &G) {
+void PrintGraph(const OLGraph &G) {
     cout << "十字链表：" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
         cout << G.xlist[i].data << "的出弧: ";
@@ -1356,8 +1291,7 @@ void PrintOLGraph(const OLGraph &G) {
     }
 }
 
-// 打印邻接多重表
-void PrintAMLGraph(const AMLGraph &G) {
+void PrintGraph(const AMLGraph &G) {
     cout << "邻接多重表：" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
         cout << G.adjmulist[i].data << ": ";
@@ -1386,7 +1320,7 @@ int main() {
     AddEdge_M(mg, 'B', 'D', 4);
     AddEdge_M(mg, 'C', 'D', 5);
     AddEdge_M(mg, 'D', 'E', 6);
-    PrintMGraph(mg);
+    PrintGraph(mg);
 
     cout << "邻接矩阵A的邻居: ";
     for (auto v: Neighbors_M(mg, 'A'))
@@ -1400,7 +1334,7 @@ int main() {
         cout << "A的下一个邻接点: " << mg.vex[idx] << endl;
     RemoveEdge_M(mg, 'A', 'B');
     DeleteVertex_M(mg, 'E');
-    PrintMGraph(mg);
+    PrintGraph(mg);
 
     // 邻接表
     ALGraph alg;
@@ -1415,7 +1349,7 @@ int main() {
     AddEdge_AL(alg, 'B', 'D', 4);
     AddEdge_AL(alg, 'C', 'D', 5);
     AddEdge_AL(alg, 'D', 'E', 6);
-    PrintALGraph(alg);
+    PrintGraph(alg);
 
     cout << "邻接表A的邻居: ";
     for (auto v: Neighbors_AL(alg, 'A'))
@@ -1429,7 +1363,7 @@ int main() {
         cout << "A的下一个邻接点: " << alg.vertices[idx].data << endl;
     RemoveEdge_AL(alg, 'A', 'B');
     DeleteVertex_AL(alg, 'E');
-    PrintALGraph(alg);
+    PrintGraph(alg);
 
     // 十字链表
     OLGraph olg;
@@ -1444,7 +1378,7 @@ int main() {
     AddEdge_OL(olg, 'B', 'D', 4);
     AddEdge_OL(olg, 'C', 'D', 5);
     AddEdge_OL(olg, 'D', 'E', 6);
-    PrintOLGraph(olg);
+    PrintGraph(olg);
 
     cout << "十字链表A的邻居: ";
     for (auto v: Neighbors_OL(olg, 'A'))
@@ -1458,7 +1392,7 @@ int main() {
         cout << "A的下一个邻接点: " << olg.xlist[idx].data << endl;
     RemoveEdge_OL(olg, 'A', 'B');
     DeleteVertex_OL(olg, 'E');
-    PrintOLGraph(olg);
+    PrintGraph(olg);
 
     // 邻接多重表
     AMLGraph amlg;
@@ -1473,7 +1407,7 @@ int main() {
     AddEdge_AML(amlg, 'B', 'D', 4);
     AddEdge_AML(amlg, 'C', 'D', 5);
     AddEdge_AML(amlg, 'D', 'E', 6);
-    PrintAMLGraph(amlg);
+    PrintGraph(amlg);
 
     cout << "邻接多重表A的邻居: ";
     for (auto v: Neighbors_AML(amlg, 'A'))
@@ -1487,7 +1421,7 @@ int main() {
         cout << "A的下一个邻接点: " << amlg.adjmulist[idx].data << endl;
     RemoveEdge_AML(amlg, 'A', 'B');
     DeleteVertex_AML(amlg, 'E');
-    PrintAMLGraph(amlg);
+    PrintGraph(amlg);
 
     return 0;
 }
