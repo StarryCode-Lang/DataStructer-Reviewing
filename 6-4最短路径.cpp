@@ -73,10 +73,10 @@ void Dijkstra_List(const ALGraph &G, int start, int dist[], int path[]) {
 
     // 定义优先队列，按距离排序
     typedef pair<int, int> iPair; // <距离, 顶点>
-    priority_queue<iPair, vector<iPair>, greater<iPair>> pq;
+    priority_queue<iPair, vector<iPair>, greater<>> pq;
 
     // 将起点加入优先队列
-    pq.push(make_pair(0, start));
+    pq.emplace(0, start);
 
     while (!pq.empty()) {
         // 取出当前距离最小的顶点
@@ -99,14 +99,14 @@ void Dijkstra_List(const ALGraph &G, int start, int dist[], int path[]) {
             if (!visited[v] && dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
                 path[v] = u;
-                pq.push(make_pair(dist[v], v));
+                pq.emplace(dist[v], v);
             }
         }
     }
 }
 
 // 打印Dijkstra算法的结果
-void PrintDijkstraResult(const Graph &G, int start, int dist[], int path[]) {
+void PrintDijkstraResult(const Graph &G, int start, int dist[], const int path[]) {
     cout << "从顶点 ";
 
     if (const auto mg = dynamic_cast<const MGraph *>(&G)) {
