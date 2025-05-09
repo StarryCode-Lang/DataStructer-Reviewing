@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits>
 #include <queue>
-#include "GraphOperation.h"
+#include "5图的定义.h"
 
 using namespace std;
 
@@ -32,7 +32,6 @@ void BFS(const MGraph &G, int u) {
         }
     }
 }
-
 void BFS(const ALGraph &G, int u) {
     int d[G.vexnum];
     for (int i = 0; i < G.vexnum; ++i)
@@ -122,7 +121,6 @@ void InitSampleMGraph(MGraph &G) {
     G.edge[1][3] = G.edge[3][1] = 1;
     G.edge[2][3] = G.edge[3][2] = 1;
 }
-
 void InitSampleALGraph(ALGraph &G) {
     G.vexnum = 4;
     G.arcnum = 4;

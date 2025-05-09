@@ -11,11 +11,10 @@ add_executable(DSCPP 2-2线性表的顺序表示.cpp
         3-3-3队列二叉树层序遍历.cpp
         4串的定义和KMP.cpp
         5-1二叉树.cpp
-        5-2并查集.cpp
+        5-2并查集.h
         6-1图的定义和基本操作.cpp
-        GraphOperation.h
+        6图的定义.h
         LinkQueue.h
-        6-2图的遍历.cpp
         6-3最小生成树.cpp
         6-4最短路径.cpp
 )

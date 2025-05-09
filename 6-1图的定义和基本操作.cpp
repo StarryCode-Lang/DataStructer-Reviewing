@@ -8,7 +8,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "GraphOperation.h"
+#include "6图的定义.h"
 
 
 // =============== 1. 邻接矩阵表示法 ===============
