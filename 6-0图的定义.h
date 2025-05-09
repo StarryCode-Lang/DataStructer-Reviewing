@@ -9,7 +9,8 @@ using namespace std;
 #define INFINITY numeric_limits<int>::max()
 typedef char VertexType; // 顶点的数据类型
 typedef int EdgeType; // 边的权值类型
-inline bool visited[MaxVertexNum]; // 访问标记数组
+inline bool visited[MaxVertexNum] = {false}; // 访问标记数组
+inline int path[MaxVertexNum][MaxVertexNum]; // 记录最短路径的前驱顶点
 
 class Graph {
 public:
@@ -98,7 +99,6 @@ int FirstNeighbor_M(const MGraph &G, VertexType x);
 int NextNeighbor_M(const MGraph &G, VertexType x, VertexType y);
 EdgeType Get_edge_value_M(const MGraph &G, VertexType x, VertexType y);
 bool Set_edge_value_M(MGraph &G, VertexType x, VertexType y, EdgeType v);
-void PrintMGraph(const MGraph &G);
 
 // 邻接表
 void InitALGraph(ALGraph &G);
@@ -113,7 +113,6 @@ int FirstNeighbor_AL(const ALGraph &G, VertexType x);
 int NextNeighbor_AL(const ALGraph &G, VertexType x, VertexType y);
 EdgeType Get_edge_value_AL(const ALGraph &G, VertexType x, VertexType y);
 bool Set_edge_value_AL(ALGraph &G, VertexType x, VertexType y, EdgeType v);
-void PrintALGraph(const ALGraph &G);
 
 // 十字链表
 void InitOLGraph(OLGraph &G);
@@ -128,7 +127,6 @@ int FirstNeighbor_OL(const OLGraph &G, VertexType x);
 int NextNeighbor_OL(const OLGraph &G, VertexType x, VertexType y);
 EdgeType Get_edge_value_OL(const OLGraph &G, VertexType x, VertexType y);
 bool Set_edge_value_OL(OLGraph &G, VertexType x, VertexType y, EdgeType v);
-void PrintOLGraph(const OLGraph &G);
 
 // 邻接多重表
 void InitAMLGraph(AMLGraph &G);
@@ -143,7 +141,6 @@ int FirstNeighbor_AML(const AMLGraph &G, VertexType x);
 int NextNeighbor_AML(const AMLGraph &G, VertexType x, VertexType y);
 EdgeType Get_edge_value_AML(const AMLGraph &G, VertexType x, VertexType y);
 bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v);
-void PrintAMLGraph(const AMLGraph &G);
 
 // 通用打印函数模板
 void PrintGraph(const MGraph &G);

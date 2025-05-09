@@ -6,13 +6,8 @@
 #include "6-0图的定义.h"
 using namespace std;
 
-// 全局变量
-int path[MaxVertexNum][MaxVertexNum]; // 记录最短路径的前驱顶点
-
 // Dijkstra算法 - 适用于邻接矩阵表示的图
 void Dijkstra_Matrix(const MGraph &G, int start, int dist[], int path[]) {
-    bool visited[MaxVertexNum] = {false}; // 标记顶点是否已找到最短路径
-
     // 初始化距离数组和路径数组
     for (int i = 0; i < G.vexnum; i++) {
         dist[i] = G.edge[start][i]; // 初始距离为起点到各顶点的直接距离
@@ -56,12 +51,11 @@ void Dijkstra_Matrix(const MGraph &G, int start, int dist[], int path[]) {
             }
         }
     }
+    visited = {false};
 }
 
 // 使用优先队列优化的Dijkstra算法 - 适用于邻接表表示的图
 void Dijkstra_List(const ALGraph &G, int start, int dist[], int path[]) {
-    bool visited[MaxVertexNum] = {false}; // 标记顶点是否已找到最短路径
-
     // 初始化距离数组和路径数组
     for (int i = 0; i < G.vexnum; i++) {
         dist[i] = INFINITY;
@@ -103,6 +97,7 @@ void Dijkstra_List(const ALGraph &G, int start, int dist[], int path[]) {
             }
         }
     }
+    visited = {false};
 }
 
 // 打印Dijkstra算法的结果
@@ -303,7 +298,6 @@ void InitDirectedWeightedALGraph(ALGraph &G) {
     addEdge(3, 4, 60); // D -> E
     addEdge(4, 1, 10); // E -> B
 }
-
 
 int main() {
     // 测试Dijkstra算法 - 邻接矩阵实现
