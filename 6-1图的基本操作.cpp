@@ -1266,13 +1266,11 @@ void PrintGraph(const MGraph &G) {
 }
 
 void PrintGraph(const ALGraph &G) {
-    cout << "邻接表：" << endl;
-    for (int i = 0; i < G.vexnum; ++i) {
+    cout << "图的邻接表：" << endl;
+    for (int i = 0; i < G.vexnum; i++) {
         cout << G.vertices[i].data << ": ";
-        ArcNode *p = G.vertices[i].firstarc;
-        while (p) {
-            cout << G.vertices[p->adjvex].data << "(" << p->weight << ") ";
-            p = p->nextarc;
+        for (ArcNode *p = G.vertices[i].firstarc; p; p = p->nextarc) {
+            cout << "(" << G.vertices[p->adjvex].data << ", " << p->weight << ") ";
         }
         cout << endl;
     }
