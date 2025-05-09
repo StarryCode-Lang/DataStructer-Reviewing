@@ -1,10 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
-#include <queue>
 #include <vector>
 #include "5-2并查集.h"
-#include "6图的定义.h"
+#include "6-0图的定义.h"
 
 using namespace std;
 
