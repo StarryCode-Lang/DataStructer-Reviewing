@@ -8,7 +8,6 @@
 
 using namespace std;
 
-// 全局变量
 int UFSets[SIZE]; // 并查集数组
 
 // 定义边结构体，用于最小生成树算法
