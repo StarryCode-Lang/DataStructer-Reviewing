@@ -160,7 +160,7 @@ void Floyd(const MGraph &G, int dist[][MaxVertexNum], int path[][MaxVertexNum]) 
         for (int j = 0; j < G.vexnum; j++) {
             dist[i][j] = G.edge[i][j];
             if (i != j && dist[i][j] < INFINITY) {
-                path[i][j] = i; // 如果i和j之间有直接连接，则路径为i
+                path[i][j] = j; // 如果i和j之间有直接连接，则路径为j
             } else {
                 path[i][j] = -1; // 否则路径为-1
             }
