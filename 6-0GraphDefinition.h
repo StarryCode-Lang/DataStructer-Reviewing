@@ -75,8 +75,7 @@ struct AMLGraph : public Graph {
     int edgenum; // 多重表特有，arcnum可用作边数也可省略
 };
 
-void visit(const MGraph &G, int i);
-void visit(const ALGraph &G, int i);
+void visit(const Graph &G, int i);
 
 // 遍历
 void BFSTraverse(const Graph &G);
