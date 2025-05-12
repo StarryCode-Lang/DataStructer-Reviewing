@@ -21,6 +21,6 @@ add_executable(DSCPP
         6-2GraphTraversal.cpp
         6-3MinimumSpanningTree.cpp
         6-4ShortestPath.cpp
-        6-5-topological-sort.cpp
+        6-5TopologicalSort.cpp
         sort.cpp
 )
