@@ -1,6 +1,7 @@
 #ifndef UNION_FIND_SET_H
 #define UNION_FIND_SET_H
 
+#include <iostream>
 
 #define SIZE 100
 extern int UFSets[SIZE]; // 并查集集合元素数组
@@ -39,7 +40,9 @@ inline void Union(int S[], int Root1, int Root2) {
 }
 
 // 检查两个元素是否在同一个集合中
-inline bool InSameSet(int S[], int x, int y) { return Find(S, x) == Find(S, y); }
+inline bool InSameSet(int S[], int x, int y) {
+    return Find(S, x) == Find(S, y);
+}
 
 // 获取集合的大小
 inline int SetSize(int S[], int x) {
@@ -48,7 +51,7 @@ inline int SetSize(int S[], int x) {
 }
 
 // 获取集合的数量
-inline int CountSets(const int S[], int n) {
+inline int CountSets(int S[], int n) {
     int count = 0;
     for (int i = 0; i < n; i++) {
         if (S[i] < 0) { // 如果是根节点

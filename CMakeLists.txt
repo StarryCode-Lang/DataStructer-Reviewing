@@ -3,19 +3,24 @@ project(DSCPP)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(DSCPP 2-2线性表的顺序表示.cpp
-        2-3线性表的链式表示.cpp
-        smart-point.cpp 3-1栈.cpp
-        3-2队列.cpp 3-3-1表达式栈.cpp
-        3-3-2斐波那契非递归.cpp
-        3-3-3队列二叉树层序遍历.cpp
-        4串的定义和KMP.cpp
-        5-1二叉树.cpp
-        5-2并查集.h
-        6-1图的基本操作.cpp
-        6-0图的定义.h
+add_executable(DSCPP
         LinkQueue.h
-        6-3最小生成树.cpp
-        6-4最短路径.cpp
-        6-5拓扑排序AOV网.cpp
+        smart-point.cpp
+        2-2SequentialList.cpp
+        2-3LinkedList.cpp
+        3-1Stack.cpp
+        3-2Queue.cpp
+        3-3-1ExpressionStack.cpp
+        3-3-2FibonacciNonRecursive.cpp
+        3-3-3QueueBinaryTreeLevelTraversal.cpp
+        4StringDefinitionAndKMP.cpp
+        5-1BinaryTree.cpp
+        5-2UnionFindSet.h
+        6-0GraphDefinition.h
+        6-1GraphOperations.cpp
+        6-2GraphTraversal.cpp
+        6-3MinimumSpanningTree.cpp
+        6-4ShortestPath.cpp
+        6-5-topological-sort.cpp
+        sort.cpp
 )

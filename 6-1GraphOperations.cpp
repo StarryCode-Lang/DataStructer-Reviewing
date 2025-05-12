@@ -1,59 +1,59 @@
 /**
- * ÎÄ¼şÃû£ºgraph_operations.cpp
- * ÃèÊö£ºÊµÏÖÍ¼µÄ»ù±¾²Ù×÷£¬°üÀ¨ËÄÖÖ´æ´¢·½Ê½£ºÁÚ½Ó¾ØÕó¡¢ÁÚ½Ó±í¡¢Ê®×ÖÁ´±íºÍÁÚ½Ó¶àÖØ±í
- * °üº¬µÄ²Ù×÷£ºAdjacent¡¢Neighbors¡¢InsertVertex¡¢DeleteVertex¡¢AddEdge¡¢RemoveEdge¡¢
- *           FirstNeighbor¡¢NextNeighbor¡¢Get_edge_value¡¢Set_edge_value
+ * æ–‡ä»¶åï¼šgraph_operations.cpp
+ * æè¿°ï¼šå®ç°å›¾çš„åŸºæœ¬æ“ä½œï¼ŒåŒ…æ‹¬å››ç§å­˜å‚¨æ–¹å¼ï¼šé‚»æ¥çŸ©é˜µã€é‚»æ¥è¡¨ã€åå­—é“¾è¡¨å’Œé‚»æ¥å¤šé‡è¡¨
+ * åŒ…å«çš„æ“ä½œï¼šAdjacentã€Neighborsã€InsertVertexã€DeleteVertexã€AddEdgeã€RemoveEdgeã€
+ *           FirstNeighborã€NextNeighborã€Get_edge_valueã€Set_edge_value
  */
 
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "6-0Í¼µÄ¶¨Òå.h"
+#include "6-0GraphDefinition.h"
 
 
-// =============== 1. ÁÚ½Ó¾ØÕó±íÊ¾·¨ ===============
-// ³õÊ¼»¯ÁÚ½Ó¾ØÕó±íÊ¾µÄÍ¼
+// =============== 1. é‚»æ¥çŸ©é˜µè¡¨ç¤ºæ³• ===============
+// åˆå§‹åŒ–é‚»æ¥çŸ©é˜µè¡¨ç¤ºçš„å›¾
 void InitMGraph(MGraph &G) {
     G.vexnum = 0;
     G.arcnum = 0;
-    // ³õÊ¼»¯ÁÚ½Ó¾ØÕó£¬ËùÓĞ±ßµÄÈ¨ÖµÖÃÎªÎŞÇî´ó£¬±íÊ¾²»Á¬Í¨
+    // åˆå§‹åŒ–é‚»æ¥çŸ©é˜µï¼Œæ‰€æœ‰è¾¹çš„æƒå€¼ç½®ä¸ºæ— ç©·å¤§ï¼Œè¡¨ç¤ºä¸è¿é€š
     for (int i = 0; i < MaxVertexNum; i++) {
         for (int j = 0; j < MaxVertexNum; j++) {
             G.edge[i][j] = INFINITY;
         }
-        G.edge[i][i] = 0; // ×Ô»·ÉèÎª0
+        G.edge[i][i] = 0; // è‡ªç¯è®¾ä¸º0
     }
 }
 
-// ÔÚÁÚ½Ó¾ØÕóÖĞ¶¨Î»¶¥µãµÄÎ»ÖÃ
+// åœ¨é‚»æ¥çŸ©é˜µä¸­å®šä½é¡¶ç‚¹çš„ä½ç½®
 int LocateVex_M(const MGraph &G, VertexType x) {
     for (int i = 0; i < G.vexnum; i++) {
         if (G.vex[i] == x) {
             return i;
         }
     }
-    return -1; // ¶¥µã²»´æÔÚ
+    return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
 }
 
-// Adjacent(G,x,y): ÅĞ¶ÏÍ¼GÊÇ·ñ´æÔÚ±ß<x,y>»ò(x,y)
+// Adjacent(G,x,y): åˆ¤æ–­å›¾Gæ˜¯å¦å­˜åœ¨è¾¹<x,y>æˆ–(x,y)
 bool Adjacent_M(const MGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     return G.edge[xIndex][yIndex] != INFINITY;
 }
 
-// Neighbors(G,x): ÁĞ³öÍ¼GÖĞÓë¶¥µãxÁÚ½ÓµÄ±ß
+// Neighbors(G,x): åˆ—å‡ºå›¾Gä¸­ä¸é¡¶ç‚¹xé‚»æ¥çš„è¾¹
 vector<VertexType> Neighbors_M(const MGraph &G, VertexType x) {
     vector<VertexType> neighbors;
     int xIndex = LocateVex_M(G, x);
 
     if (xIndex == -1) {
-        return neighbors; // ¶¥µã²»´æÔÚ£¬·µ»Ø¿ÕÁĞ±í
+        return neighbors; // é¡¶ç‚¹ä¸å­˜åœ¨ï¼Œè¿”å›ç©ºåˆ—è¡¨
     }
 
     for (int i = 0; i < G.vexnum; i++) {
@@ -65,57 +65,57 @@ vector<VertexType> Neighbors_M(const MGraph &G, VertexType x) {
     return neighbors;
 }
 
-// InsertVertex(G,x): ÔÚÍ¼GÖĞ²åÈë¶¥µãx
+// InsertVertex(G,x): åœ¨å›¾Gä¸­æ’å…¥é¡¶ç‚¹x
 bool InsertVertex_M(MGraph &G, VertexType x) {
-    // ¼ì²éÍ¼ÊÇ·ñÒÑÂú
+    // æ£€æŸ¥å›¾æ˜¯å¦å·²æ»¡
     if (G.vexnum >= MaxVertexNum) {
         return false;
     }
 
-    // ¼ì²é¶¥µãÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥é¡¶ç‚¹æ˜¯å¦å·²å­˜åœ¨
     if (LocateVex_M(G, x) != -1) {
         return false;
     }
 
-    // ²åÈë¶¥µã
+    // æ’å…¥é¡¶ç‚¹
     G.vex[G.vexnum] = x;
 
-    // ³õÊ¼»¯ĞÂ¶¥µãµÄ±ß
+    // åˆå§‹åŒ–æ–°é¡¶ç‚¹çš„è¾¹
     for (int i = 0; i <= G.vexnum; i++) {
         G.edge[G.vexnum][i] = INFINITY;
         G.edge[i][G.vexnum] = INFINITY;
     }
-    G.edge[G.vexnum][G.vexnum] = 0; // ×Ô»·ÉèÎª0
+    G.edge[G.vexnum][G.vexnum] = 0; // è‡ªç¯è®¾ä¸º0
 
     G.vexnum++;
     return true;
 }
 
-// DeleteVertex(G,x): ´ÓÍ¼GÖĞÉ¾³ı¶¥µãx
+// DeleteVertex(G,x): ä»å›¾Gä¸­åˆ é™¤é¡¶ç‚¹x
 bool DeleteVertex_M(MGraph &G, VertexType x) {
     int xIndex = LocateVex_M(G, x);
 
     if (xIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ¸üĞÂ±ßÊı
+    // æ›´æ–°è¾¹æ•°
     for (int i = 0; i < G.vexnum; i++) {
         if (G.edge[xIndex][i] != INFINITY && i != xIndex) {
             G.arcnum--;
         }
         if (G.edge[i][xIndex] != INFINITY && i != xIndex) {
-            // Èç¹ûÊÇÓĞÏòÍ¼£¬ĞèÒª¼õÈ¥ËùÓĞÈë±ß
+            // å¦‚æœæ˜¯æœ‰å‘å›¾ï¼Œéœ€è¦å‡å»æ‰€æœ‰å…¥è¾¹
             G.arcnum--;
         }
     }
 
-    // É¾³ı¶¥µã£¬½«ºóÃæµÄ¶¥µãÇ°ÒÆ
+    // åˆ é™¤é¡¶ç‚¹ï¼Œå°†åé¢çš„é¡¶ç‚¹å‰ç§»
     for (int i = xIndex; i < G.vexnum - 1; i++) {
         G.vex[i] = G.vex[i + 1];
     }
 
-    // ¸üĞÂÁÚ½Ó¾ØÕó
+    // æ›´æ–°é‚»æ¥çŸ©é˜µ
     for (int i = xIndex; i < G.vexnum - 1; i++) {
         for (int j = 0; j < G.vexnum; j++) {
             G.edge[i][j] = G.edge[i + 1][j];
@@ -132,17 +132,17 @@ bool DeleteVertex_M(MGraph &G, VertexType x) {
     return true;
 }
 
-// AddEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)»òÓĞÏò±ß<x,y>²»´æÔÚ£¬ÔòÏòÍ¼GÖĞÌí¼Ó¸Ã±ß
+// AddEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)æˆ–æœ‰å‘è¾¹<x,y>ä¸å­˜åœ¨ï¼Œåˆ™å‘å›¾Gä¸­æ·»åŠ è¯¥è¾¹
 bool AddEdge_M(MGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.edge[xIndex][yIndex] != INFINITY) {
-        return false; // ±ßÒÑ´æÔÚ
+        return false; // è¾¹å·²å­˜åœ¨
     }
 
     G.edge[xIndex][yIndex] = weight;
@@ -150,17 +150,17 @@ bool AddEdge_M(MGraph &G, VertexType x, VertexType y, EdgeType weight) {
     return true;
 }
 
-// RemoveEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)»òÓĞÏò±ß<x,y>´æÔÚ£¬Ôò´ÓÍ¼GÖĞÉ¾³ı¸Ã±ß
+// RemoveEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)æˆ–æœ‰å‘è¾¹<x,y>å­˜åœ¨ï¼Œåˆ™ä»å›¾Gä¸­åˆ é™¤è¯¥è¾¹
 bool RemoveEdge_M(MGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.edge[xIndex][yIndex] == INFINITY) {
-        return false; // ±ß²»´æÔÚ
+        return false; // è¾¹ä¸å­˜åœ¨
     }
 
     G.edge[xIndex][yIndex] = INFINITY;
@@ -168,12 +168,12 @@ bool RemoveEdge_M(MGraph &G, VertexType x, VertexType y) {
     return true;
 }
 
-// FirstNeighbor(G,x): ÇóÍ¼GÖĞ¶¥µãxµÄµÚÒ»¸öÁÚ½Óµã£¬ÈôÓĞÔò·µ»Ø¶¥µãºÅ£¬ÈôxÃ»ÓĞÁÚ½Óµã»òÍ¼ÖĞ²»´æÔÚx£¬Ôò·µ»Ø-1
+// FirstNeighbor(G,x): æ±‚å›¾Gä¸­é¡¶ç‚¹xçš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè‹¥æœ‰åˆ™è¿”å›é¡¶ç‚¹å·ï¼Œè‹¥xæ²¡æœ‰é‚»æ¥ç‚¹æˆ–å›¾ä¸­ä¸å­˜åœ¨xï¼Œåˆ™è¿”å›-1
 int FirstNeighbor_M(const MGraph &G, VertexType x) {
     int xIndex = LocateVex_M(G, x);
 
     if (xIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     for (int i = 0; i < G.vexnum; i++) {
@@ -182,21 +182,21 @@ int FirstNeighbor_M(const MGraph &G, VertexType x) {
         }
     }
 
-    return -1; // Ã»ÓĞÁÚ½Óµã
+    return -1; // æ²¡æœ‰é‚»æ¥ç‚¹
 }
 
 // NextNeighbor(G,x,y):
-// ¼ÙÉèÍ¼GÖĞ¶¥µãyÊÇ¶¥µãxµÄÒ»¸öÁÚ½Óµã£¬·µ»Ø³ıyÍâ¶¥µãxµÄÏÂÒ»¸öÁÚ½ÓµãµÄ¶¥µãºÅ£¬ÈôyÊÇxµÄ×îºóÒ»¸öÁÚ½Óµã£¬Ôò·µ»Ø-1
+// å‡è®¾å›¾Gä¸­é¡¶ç‚¹yæ˜¯é¡¶ç‚¹xçš„ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè¿”å›é™¤yå¤–é¡¶ç‚¹xçš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹çš„é¡¶ç‚¹å·ï¼Œè‹¥yæ˜¯xçš„æœ€åä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œåˆ™è¿”å›-1
 int NextNeighbor_M(const MGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.edge[xIndex][yIndex] == INFINITY) {
-        return -1; // y²»ÊÇxµÄÁÚ½Óµã
+        return -1; // yä¸æ˜¯xçš„é‚»æ¥ç‚¹
     }
 
     for (int i = yIndex + 1; i < G.vexnum; i++) {
@@ -205,42 +205,42 @@ int NextNeighbor_M(const MGraph &G, VertexType x, VertexType y) {
         }
     }
 
-    return -1; // Ã»ÓĞÏÂÒ»¸öÁÚ½Óµã
+    return -1; // æ²¡æœ‰ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹
 }
 
-// Get_edge_value(G,x,y): »ñÈ¡Í¼GÖĞ±ß(x,y)»ò<x,y>¶ÔÓ¦µÄÈ¨Öµ
+// Get_edge_value(G,x,y): è·å–å›¾Gä¸­è¾¹(x,y)æˆ–<x,y>å¯¹åº”çš„æƒå€¼
 EdgeType Get_edge_value_M(const MGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return INFINITY; // ¶¥µã²»´æÔÚ
+        return INFINITY; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     return G.edge[xIndex][yIndex];
 }
 
-// Set_edge_value(G,x,y,v): ÉèÖÃÍ¼GÖĞ±ß(x,y)»ò<x,y>¶ÔÓ¦µÄÈ¨ÖµÎªv
+// Set_edge_value(G,x,y,v): è®¾ç½®å›¾Gä¸­è¾¹(x,y)æˆ–<x,y>å¯¹åº”çš„æƒå€¼ä¸ºv
 bool Set_edge_value_M(MGraph &G, VertexType x, VertexType y, EdgeType v) {
     int xIndex = LocateVex_M(G, x);
     int yIndex = LocateVex_M(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.edge[xIndex][yIndex] == INFINITY && v != INFINITY) {
-        G.arcnum++; // Èç¹ûÔ­À´²»´æÔÚ±ß£¬ÏÖÔÚÌí¼ÓÁË±ß£¬±ßÊı¼Ó1
+        G.arcnum++; // å¦‚æœåŸæ¥ä¸å­˜åœ¨è¾¹ï¼Œç°åœ¨æ·»åŠ äº†è¾¹ï¼Œè¾¹æ•°åŠ 1
     } else if (G.edge[xIndex][yIndex] != INFINITY && v == INFINITY) {
-        G.arcnum--; // Èç¹ûÔ­À´´æÔÚ±ß£¬ÏÖÔÚÉ¾³ıÁË±ß£¬±ßÊı¼õ1
+        G.arcnum--; // å¦‚æœåŸæ¥å­˜åœ¨è¾¹ï¼Œç°åœ¨åˆ é™¤äº†è¾¹ï¼Œè¾¹æ•°å‡1
     }
 
     G.edge[xIndex][yIndex] = v;
     return true;
 }
 
-// =============== 2. ÁÚ½Ó±í±íÊ¾·¨ ===============
-// ³õÊ¼»¯ÁÚ½Ó±í±íÊ¾µÄÍ¼
+// =============== 2. é‚»æ¥è¡¨è¡¨ç¤ºæ³• ===============
+// åˆå§‹åŒ–é‚»æ¥è¡¨è¡¨ç¤ºçš„å›¾
 void InitALGraph(ALGraph &G) {
     G.vexnum = 0;
     G.arcnum = 0;
@@ -250,43 +250,43 @@ void InitALGraph(ALGraph &G) {
     }
 }
 
-// ÔÚÁÚ½Ó±íÖĞ¶¨Î»¶¥µãµÄÎ»ÖÃ
+// åœ¨é‚»æ¥è¡¨ä¸­å®šä½é¡¶ç‚¹çš„ä½ç½®
 int LocateVex_AL(const ALGraph &G, VertexType x) {
     for (int i = 0; i < G.vexnum; i++) {
         if (G.vertices[i].data == x) {
             return i;
         }
     }
-    return -1; // ¶¥µã²»´æÔÚ
+    return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
 }
 
-// Adjacent(G,x,y): ÅĞ¶ÏÍ¼GÊÇ·ñ´æÔÚ±ß<x,y>»ò(x,y)
+// Adjacent(G,x,y): åˆ¤æ–­å›¾Gæ˜¯å¦å­˜åœ¨è¾¹<x,y>æˆ–(x,y)
 bool Adjacent_AL(const ALGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
     while (p != nullptr) {
         if (p->adjvex == yIndex) {
-            return true; // ±ß´æÔÚ
+            return true; // è¾¹å­˜åœ¨
         }
         p = p->nextarc;
     }
 
-    return false; // ±ß²»´æÔÚ
+    return false; // è¾¹ä¸å­˜åœ¨
 }
 
-// Neighbors(G,x): ÁĞ³öÍ¼GÖĞÓë¶¥µãxÁÚ½ÓµÄ±ß
+// Neighbors(G,x): åˆ—å‡ºå›¾Gä¸­ä¸é¡¶ç‚¹xé‚»æ¥çš„è¾¹
 vector<VertexType> Neighbors_AL(const ALGraph &G, VertexType x) {
     vector<VertexType> neighbors;
     int xIndex = LocateVex_AL(G, x);
 
     if (xIndex == -1) {
-        return neighbors; // ¶¥µã²»´æÔÚ£¬·µ»Ø¿ÕÁĞ±í
+        return neighbors; // é¡¶ç‚¹ä¸å­˜åœ¨ï¼Œè¿”å›ç©ºåˆ—è¡¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
@@ -298,19 +298,19 @@ vector<VertexType> Neighbors_AL(const ALGraph &G, VertexType x) {
     return neighbors;
 }
 
-// InsertVertex(G,x): ÔÚÍ¼GÖĞ²åÈë¶¥µãx
+// InsertVertex(G,x): åœ¨å›¾Gä¸­æ’å…¥é¡¶ç‚¹x
 bool InsertVertex_AL(ALGraph &G, VertexType x) {
-    // ¼ì²éÍ¼ÊÇ·ñÒÑÂú
+    // æ£€æŸ¥å›¾æ˜¯å¦å·²æ»¡
     if (G.vexnum >= MaxVertexNum) {
         return false;
     }
 
-    // ¼ì²é¶¥µãÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥é¡¶ç‚¹æ˜¯å¦å·²å­˜åœ¨
     if (LocateVex_AL(G, x) != -1) {
         return false;
     }
 
-    // ²åÈë¶¥µã
+    // æ’å…¥é¡¶ç‚¹
     G.vertices[G.vexnum].data = x;
     G.vertices[G.vexnum].firstarc = nullptr;
 
@@ -318,15 +318,15 @@ bool InsertVertex_AL(ALGraph &G, VertexType x) {
     return true;
 }
 
-// DeleteVertex(G,x): ´ÓÍ¼GÖĞÉ¾³ı¶¥µãx
+// DeleteVertex(G,x): ä»å›¾Gä¸­åˆ é™¤é¡¶ç‚¹x
 bool DeleteVertex_AL(ALGraph &G, VertexType x) {
     int xIndex = LocateVex_AL(G, x);
 
     if (xIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // É¾³ıÒÔxÎªÆğµãµÄËùÓĞ±ß
+    // åˆ é™¤ä»¥xä¸ºèµ·ç‚¹çš„æ‰€æœ‰è¾¹
     ArcNode *p = G.vertices[xIndex].firstarc;
     ArcNode *q;
     while (p != nullptr) {
@@ -336,7 +336,7 @@ bool DeleteVertex_AL(ALGraph &G, VertexType x) {
         G.arcnum--;
     }
 
-    // É¾³ıÒÔxÎªÖÕµãµÄËùÓĞ±ß
+    // åˆ é™¤ä»¥xä¸ºç»ˆç‚¹çš„æ‰€æœ‰è¾¹
     for (int i = 0; i < G.vexnum; i++) {
         if (i == xIndex)
             continue;
@@ -349,8 +349,8 @@ bool DeleteVertex_AL(ALGraph &G, VertexType x) {
             p = p->nextarc;
         }
 
-        if (p != nullptr) { // ÕÒµ½ÁËÒÔxÎªÖÕµãµÄ±ß
-            if (q == nullptr) { // ÊÇµÚÒ»Ìõ±ß
+        if (p != nullptr) { // æ‰¾åˆ°äº†ä»¥xä¸ºç»ˆç‚¹çš„è¾¹
+            if (q == nullptr) { // æ˜¯ç¬¬ä¸€æ¡è¾¹
                 G.vertices[i].firstarc = p->nextarc;
             } else {
                 q->nextarc = p->nextarc;
@@ -360,19 +360,19 @@ bool DeleteVertex_AL(ALGraph &G, VertexType x) {
         }
     }
 
-    // ¸üĞÂËùÓĞ¶¥µãµÄ±ß±íÖĞ´óÓÚxIndexµÄ½ÚµãÖµ
+    // æ›´æ–°æ‰€æœ‰é¡¶ç‚¹çš„è¾¹è¡¨ä¸­å¤§äºxIndexçš„èŠ‚ç‚¹å€¼
     for (int i = 0; i < G.vexnum; i++) {
         p = G.vertices[i].firstarc;
 
         while (p != nullptr) {
             if (p->adjvex > xIndex) {
-                p->adjvex--; // ÏÂ±ê¼õ1
+                p->adjvex--; // ä¸‹æ ‡å‡1
             }
             p = p->nextarc;
         }
     }
 
-    // É¾³ı¶¥µã£¬½«ºóÃæµÄ¶¥µãÇ°ÒÆ
+    // åˆ é™¤é¡¶ç‚¹ï¼Œå°†åé¢çš„é¡¶ç‚¹å‰ç§»
     for (int i = xIndex; i < G.vexnum - 1; i++) {
         G.vertices[i] = G.vertices[i + 1];
     }
@@ -381,25 +381,25 @@ bool DeleteVertex_AL(ALGraph &G, VertexType x) {
     return true;
 }
 
-// AddEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)»òÓĞÏò±ß<x,y>²»´æÔÚ£¬ÔòÏòÍ¼GÖĞÌí¼Ó¸Ã±ß
+// AddEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)æˆ–æœ‰å‘è¾¹<x,y>ä¸å­˜åœ¨ï¼Œåˆ™å‘å›¾Gä¸­æ·»åŠ è¯¥è¾¹
 bool AddEdge_AL(ALGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ¼ì²é±ßÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥è¾¹æ˜¯å¦å·²å­˜åœ¨
     ArcNode *p = G.vertices[xIndex].firstarc;
     while (p != nullptr) {
         if (p->adjvex == yIndex) {
-            return false; // ±ßÒÑ´æÔÚ
+            return false; // è¾¹å·²å­˜åœ¨
         }
         p = p->nextarc;
     }
 
-    // ´´½¨ĞÂ±ß
+    // åˆ›å»ºæ–°è¾¹
     auto *newArc = new ArcNode;
     newArc->adjvex = yIndex;
     newArc->weight = weight;
@@ -410,30 +410,30 @@ bool AddEdge_AL(ALGraph &G, VertexType x, VertexType y, EdgeType weight) {
     return true;
 }
 
-// RemoveEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)»òÓĞÏò±ß<x,y>´æÔÚ£¬Ôò´ÓÍ¼GÖĞÉ¾³ı¸Ã±ß
+// RemoveEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)æˆ–æœ‰å‘è¾¹<x,y>å­˜åœ¨ï¼Œåˆ™ä»å›¾Gä¸­åˆ é™¤è¯¥è¾¹
 bool RemoveEdge_AL(ALGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
     ArcNode *q = nullptr;
 
-    // ²éÕÒ±ß
+    // æŸ¥æ‰¾è¾¹
     while (p != nullptr && p->adjvex != yIndex) {
         q = p;
         p = p->nextarc;
     }
 
     if (p == nullptr) {
-        return false; // ±ß²»´æÔÚ
+        return false; // è¾¹ä¸å­˜åœ¨
     }
 
-    // É¾³ı±ß
-    if (q == nullptr) { // ÊÇµÚÒ»Ìõ±ß
+    // åˆ é™¤è¾¹
+    if (q == nullptr) { // æ˜¯ç¬¬ä¸€æ¡è¾¹
         G.vertices[xIndex].firstarc = p->nextarc;
     } else {
         q->nextarc = p->nextarc;
@@ -444,103 +444,103 @@ bool RemoveEdge_AL(ALGraph &G, VertexType x, VertexType y) {
     return true;
 }
 
-// FirstNeighbor(G,x): ÇóÍ¼GÖĞ¶¥µãxµÄµÚÒ»¸öÁÚ½Óµã£¬ÈôÓĞÔò·µ»Ø¶¥µãºÅ£¬ÈôxÃ»ÓĞÁÚ½Óµã»òÍ¼ÖĞ²»´æÔÚx£¬Ôò·µ»Ø-1
+// FirstNeighbor(G,x): æ±‚å›¾Gä¸­é¡¶ç‚¹xçš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè‹¥æœ‰åˆ™è¿”å›é¡¶ç‚¹å·ï¼Œè‹¥xæ²¡æœ‰é‚»æ¥ç‚¹æˆ–å›¾ä¸­ä¸å­˜åœ¨xï¼Œåˆ™è¿”å›-1
 int FirstNeighbor_AL(const ALGraph &G, VertexType x) {
     int xIndex = LocateVex_AL(G, x);
 
     if (xIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.vertices[xIndex].firstarc != nullptr) {
         return G.vertices[xIndex].firstarc->adjvex;
     }
 
-    return -1; // Ã»ÓĞÁÚ½Óµã
+    return -1; // æ²¡æœ‰é‚»æ¥ç‚¹
 }
 
 // NextNeighbor(G,x,y):
-// ¼ÙÉèÍ¼GÖĞ¶¥µãyÊÇ¶¥µãxµÄÒ»¸öÁÚ½Óµã£¬·µ»Ø³ıyÍâ¶¥µãxµÄÏÂÒ»¸öÁÚ½ÓµãµÄ¶¥µãºÅ£¬ÈôyÊÇxµÄ×îºóÒ»¸öÁÚ½Óµã£¬Ôò·µ»Ø-1
+// å‡è®¾å›¾Gä¸­é¡¶ç‚¹yæ˜¯é¡¶ç‚¹xçš„ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè¿”å›é™¤yå¤–é¡¶ç‚¹xçš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹çš„é¡¶ç‚¹å·ï¼Œè‹¥yæ˜¯xçš„æœ€åä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œåˆ™è¿”å›-1
 int NextNeighbor_AL(const ALGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
 
-    // ²éÕÒ±ßx->y
+    // æŸ¥æ‰¾è¾¹x->y
     while (p != nullptr && p->adjvex != yIndex) {
         p = p->nextarc;
     }
 
     if (p == nullptr || p->nextarc == nullptr) {
-        return -1; // ±ß²»´æÔÚ»òyÊÇ×îºóÒ»¸öÁÚ½Óµã
+        return -1; // è¾¹ä¸å­˜åœ¨æˆ–yæ˜¯æœ€åä¸€ä¸ªé‚»æ¥ç‚¹
     }
 
     return p->nextarc->adjvex;
 }
 
-// Get_edge_value(G,x,y): »ñÈ¡Í¼GÖĞ±ß(x,y)»ò<x,y>¶ÔÓ¦µÄÈ¨Öµ
+// Get_edge_value(G,x,y): è·å–å›¾Gä¸­è¾¹(x,y)æˆ–<x,y>å¯¹åº”çš„æƒå€¼
 EdgeType Get_edge_value_AL(const ALGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return INFINITY; // ¶¥µã²»´æÔÚ
+        return INFINITY; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
 
     while (p != nullptr) {
         if (p->adjvex == yIndex) {
-            return p->weight; // ·µ»Ø±ßµÄÈ¨Öµ
+            return p->weight; // è¿”å›è¾¹çš„æƒå€¼
         }
         p = p->nextarc;
     }
 
-    return INFINITY; // ±ß²»´æÔÚ
+    return INFINITY; // è¾¹ä¸å­˜åœ¨
 }
 
-// Set_edge_value(G,x,y,v): ÉèÖÃÍ¼GÖĞ±ß(x,y)»ò<x,y>¶ÔÓ¦µÄÈ¨ÖµÎªv
+// Set_edge_value(G,x,y,v): è®¾ç½®å›¾Gä¸­è¾¹(x,y)æˆ–<x,y>å¯¹åº”çš„æƒå€¼ä¸ºv
 bool Set_edge_value_AL(ALGraph &G, VertexType x, VertexType y, EdgeType v) {
     int xIndex = LocateVex_AL(G, x);
     int yIndex = LocateVex_AL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcNode *p = G.vertices[xIndex].firstarc;
 
-    // ²éÕÒ±ß
+    // æŸ¥æ‰¾è¾¹
     while (p != nullptr && p->adjvex != yIndex) {
         p = p->nextarc;
     }
 
     if (p == nullptr) {
         if (v == INFINITY) {
-            return true; // ±ß±¾À´¾Í²»´æÔÚÇÒÈ¨ÖµÎªINFINITY£¬ÎŞĞè²Ù×÷
+            return true; // è¾¹æœ¬æ¥å°±ä¸å­˜åœ¨ä¸”æƒå€¼ä¸ºINFINITYï¼Œæ— éœ€æ“ä½œ
         }
 
-        // ±ß²»´æÔÚÇÒĞèÒªÌí¼Ó±ß
+        // è¾¹ä¸å­˜åœ¨ä¸”éœ€è¦æ·»åŠ è¾¹
         return AddEdge_AL(G, x, y, v);
     } else {
         if (v == INFINITY) {
-            // ´æÔÚ±ßµ«ĞèÒªÉ¾³ı
+            // å­˜åœ¨è¾¹ä½†éœ€è¦åˆ é™¤
             return RemoveEdge_AL(G, x, y);
         }
 
-        // ´æÔÚ±ßÇÒĞèÒª¸üĞÂÈ¨Öµ
+        // å­˜åœ¨è¾¹ä¸”éœ€è¦æ›´æ–°æƒå€¼
         p->weight = v;
         return true;
     }
 }
 
-// =============== 3. Ê®×ÖÁ´±í±íÊ¾·¨ ===============
-// ³õÊ¼»¯Ê®×ÖÁ´±í±íÊ¾µÄÍ¼
+// =============== 3. åå­—é“¾è¡¨è¡¨ç¤ºæ³• ===============
+// åˆå§‹åŒ–åå­—é“¾è¡¨è¡¨ç¤ºçš„å›¾
 void InitOLGraph(OLGraph &G) {
     G.vexnum = 0;
     G.arcnum = 0;
@@ -551,43 +551,43 @@ void InitOLGraph(OLGraph &G) {
     }
 }
 
-// ÔÚÊ®×ÖÁ´±íÖĞ¶¨Î»¶¥µãµÄÎ»ÖÃ
+// åœ¨åå­—é“¾è¡¨ä¸­å®šä½é¡¶ç‚¹çš„ä½ç½®
 int LocateVex_OL(const OLGraph &G, VertexType x) {
     for (int i = 0; i < G.vexnum; i++) {
         if (G.xlist[i].data == x) {
             return i;
         }
     }
-    return -1; // ¶¥µã²»´æÔÚ
+    return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
 }
 
-// Adjacent(G,x,y): ÅĞ¶ÏÍ¼GÊÇ·ñ´æÔÚ±ß<x,y>»ò(x,y)
+// Adjacent(G,x,y): åˆ¤æ–­å›¾Gæ˜¯å¦å­˜åœ¨è¾¹<x,y>æˆ–(x,y)
 bool Adjacent_OL(const OLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcBox *p = G.xlist[xIndex].firstout;
     while (p != nullptr) {
         if (p->headvex == yIndex) {
-            return true; // ±ß´æÔÚ
+            return true; // è¾¹å­˜åœ¨
         }
         p = p->tlink;
     }
 
-    return false; // ±ß²»´æÔÚ
+    return false; // è¾¹ä¸å­˜åœ¨
 }
 
-// Neighbors(G,x): ÁĞ³öÍ¼GÖĞÓë¶¥µãxÁÚ½ÓµÄ±ß
+// Neighbors(G,x): åˆ—å‡ºå›¾Gä¸­ä¸é¡¶ç‚¹xé‚»æ¥çš„è¾¹
 vector<VertexType> Neighbors_OL(const OLGraph &G, VertexType x) {
     vector<VertexType> neighbors;
     int xIndex = LocateVex_OL(G, x);
 
     if (xIndex == -1) {
-        return neighbors; // ¶¥µã²»´æÔÚ£¬·µ»Ø¿ÕÁĞ±í
+        return neighbors; // é¡¶ç‚¹ä¸å­˜åœ¨ï¼Œè¿”å›ç©ºåˆ—è¡¨
     }
 
     ArcBox *p = G.xlist[xIndex].firstout;
@@ -599,19 +599,19 @@ vector<VertexType> Neighbors_OL(const OLGraph &G, VertexType x) {
     return neighbors;
 }
 
-// InsertVertex(G,x): ÔÚÍ¼GÖĞ²åÈë¶¥µãx
+// InsertVertex(G,x): åœ¨å›¾Gä¸­æ’å…¥é¡¶ç‚¹x
 bool InsertVertex_OL(OLGraph &G, VertexType x) {
-    // ¼ì²éÍ¼ÊÇ·ñÒÑÂú
+    // æ£€æŸ¥å›¾æ˜¯å¦å·²æ»¡
     if (G.vexnum >= MaxVertexNum) {
         return false;
     }
 
-    // ¼ì²é¶¥µãÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥é¡¶ç‚¹æ˜¯å¦å·²å­˜åœ¨
     if (LocateVex_OL(G, x) != -1) {
         return false;
     }
 
-    // ²åÈë¶¥µã
+    // æ’å…¥é¡¶ç‚¹
     G.xlist[G.vexnum].data = x;
     G.xlist[G.vexnum].firstin = nullptr;
     G.xlist[G.vexnum].firstout = nullptr;
@@ -620,20 +620,20 @@ bool InsertVertex_OL(OLGraph &G, VertexType x) {
     return true;
 }
 
-// DeleteVertex(G,x): ´ÓÍ¼GÖĞÉ¾³ı¶¥µãx
+// DeleteVertex(G,x): ä»å›¾Gä¸­åˆ é™¤é¡¶ç‚¹x
 bool DeleteVertex_OL(OLGraph &G, VertexType x) {
     int xIndex = LocateVex_OL(G, x);
 
     if (xIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // É¾³ıÒÔxÎªÎ²µÄËùÓĞ»¡
+    // åˆ é™¤ä»¥xä¸ºå°¾çš„æ‰€æœ‰å¼§
     ArcBox *p = G.xlist[xIndex].firstout;
     ArcBox *q;
 
     while (p != nullptr) {
-        // ´Ó»¡Í·µÄÁ´±íÖĞÉ¾³ı¸Ã»¡
+        // ä»å¼§å¤´çš„é“¾è¡¨ä¸­åˆ é™¤è¯¥å¼§
         if (G.xlist[p->headvex].firstin == p) {
             G.xlist[p->headvex].firstin = p->hlink;
         } else {
@@ -652,11 +652,11 @@ bool DeleteVertex_OL(OLGraph &G, VertexType x) {
         G.arcnum--;
     }
 
-    // É¾³ıÒÔxÎªÍ·µÄËùÓĞ»¡
+    // åˆ é™¤ä»¥xä¸ºå¤´çš„æ‰€æœ‰å¼§
     p = G.xlist[xIndex].firstin;
 
     while (p != nullptr) {
-        // ´Ó»¡Î²µÄÁ´±íÖĞÉ¾³ı¸Ã»¡
+        // ä»å¼§å°¾çš„é“¾è¡¨ä¸­åˆ é™¤è¯¥å¼§
         if (G.xlist[p->tailvex].firstout == p) {
             G.xlist[p->tailvex].firstout = p->tlink;
         } else {
@@ -675,28 +675,28 @@ bool DeleteVertex_OL(OLGraph &G, VertexType x) {
         G.arcnum--;
     }
 
-    // ¸üĞÂËùÓĞ¶¥µãµÄ»¡ÖĞ´óÓÚxIndexµÄ¶¥µã±àºÅ
+    // æ›´æ–°æ‰€æœ‰é¡¶ç‚¹çš„å¼§ä¸­å¤§äºxIndexçš„é¡¶ç‚¹ç¼–å·
     for (int i = 0; i < G.vexnum; i++) {
-        // ¸üĞÂ³ö»¡
+        // æ›´æ–°å‡ºå¼§
         p = G.xlist[i].firstout;
         while (p != nullptr) {
             if (p->headvex > xIndex) {
-                p->headvex--; // ÏÂ±ê¼õ1
+                p->headvex--; // ä¸‹æ ‡å‡1
             }
             p = p->tlink;
         }
 
-        // ¸üĞÂÈë»¡
+        // æ›´æ–°å…¥å¼§
         p = G.xlist[i].firstin;
         while (p != nullptr) {
             if (p->tailvex > xIndex) {
-                p->tailvex--; // ÏÂ±ê¼õ1
+                p->tailvex--; // ä¸‹æ ‡å‡1
             }
             p = p->hlink;
         }
     }
 
-    // É¾³ı¶¥µã£¬½«ºóÃæµÄ¶¥µãÇ°ÒÆ
+    // åˆ é™¤é¡¶ç‚¹ï¼Œå°†åé¢çš„é¡¶ç‚¹å‰ç§»
     for (int i = xIndex; i < G.vexnum - 1; i++) {
         G.xlist[i] = G.xlist[i + 1];
     }
@@ -705,35 +705,35 @@ bool DeleteVertex_OL(OLGraph &G, VertexType x) {
     return true;
 }
 
-// AddEdge(G,x,y): Èç¹ûÓĞÏò±ß<x,y>²»´æÔÚ£¬ÔòÏòÍ¼GÖĞÌí¼Ó¸Ã±ß
+// AddEdge(G,x,y): å¦‚æœæœ‰å‘è¾¹<x,y>ä¸å­˜åœ¨ï¼Œåˆ™å‘å›¾Gä¸­æ·»åŠ è¯¥è¾¹
 bool AddEdge_OL(OLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ¼ì²é±ßÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥è¾¹æ˜¯å¦å·²å­˜åœ¨
     ArcBox *p = G.xlist[xIndex].firstout;
     while (p != nullptr) {
         if (p->headvex == yIndex) {
-            return false; // ±ßÒÑ´æÔÚ
+            return false; // è¾¹å·²å­˜åœ¨
         }
         p = p->tlink;
     }
 
-    // ´´½¨ĞÂ»¡
+    // åˆ›å»ºæ–°å¼§
     auto *newArc = new ArcBox;
     newArc->tailvex = xIndex;
     newArc->headvex = yIndex;
     newArc->weight = weight;
 
-    // ²åÈëµ½³ö»¡Á´±íÖĞ
+    // æ’å…¥åˆ°å‡ºå¼§é“¾è¡¨ä¸­
     newArc->tlink = G.xlist[xIndex].firstout;
     G.xlist[xIndex].firstout = newArc;
 
-    // ²åÈëµ½Èë»¡Á´±íÖĞ
+    // æ’å…¥åˆ°å…¥å¼§é“¾è¡¨ä¸­
     newArc->hlink = G.xlist[yIndex].firstin;
     G.xlist[yIndex].firstin = newArc;
 
@@ -741,16 +741,16 @@ bool AddEdge_OL(OLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     return true;
 }
 
-// RemoveEdge(G,x,y): Èç¹ûÓĞÏò±ß<x,y>´æÔÚ£¬Ôò´ÓÍ¼GÖĞÉ¾³ı¸Ã±ß
+// RemoveEdge(G,x,y): å¦‚æœæœ‰å‘è¾¹<x,y>å­˜åœ¨ï¼Œåˆ™ä»å›¾Gä¸­åˆ é™¤è¯¥è¾¹
 bool RemoveEdge_OL(OLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ²éÕÒ±ßx->y
+    // æŸ¥æ‰¾è¾¹x->y
     ArcBox *p = G.xlist[xIndex].firstout;
     ArcBox *pre = nullptr;
 
@@ -760,17 +760,17 @@ bool RemoveEdge_OL(OLGraph &G, VertexType x, VertexType y) {
     }
 
     if (p == nullptr) {
-        return false; // ±ß²»´æÔÚ
+        return false; // è¾¹ä¸å­˜åœ¨
     }
 
-    // ´Ó³ö»¡Á´±íÖĞÉ¾³ı
+    // ä»å‡ºå¼§é“¾è¡¨ä¸­åˆ é™¤
     if (pre == nullptr) {
         G.xlist[xIndex].firstout = p->tlink;
     } else {
         pre->tlink = p->tlink;
     }
 
-    // ´ÓÈë»¡Á´±íÖĞÉ¾³ı
+    // ä»å…¥å¼§é“¾è¡¨ä¸­åˆ é™¤
     pre = nullptr;
     ArcBox *q = G.xlist[yIndex].firstin;
 
@@ -790,103 +790,103 @@ bool RemoveEdge_OL(OLGraph &G, VertexType x, VertexType y) {
     return true;
 }
 
-// FirstNeighbor(G,x): ÇóÍ¼GÖĞ¶¥µãxµÄµÚÒ»¸öÁÚ½Óµã£¬ÈôÓĞÔò·µ»Ø¶¥µãºÅ£¬ÈôxÃ»ÓĞÁÚ½Óµã»òÍ¼ÖĞ²»´æÔÚx£¬Ôò·µ»Ø-1
+// FirstNeighbor(G,x): æ±‚å›¾Gä¸­é¡¶ç‚¹xçš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè‹¥æœ‰åˆ™è¿”å›é¡¶ç‚¹å·ï¼Œè‹¥xæ²¡æœ‰é‚»æ¥ç‚¹æˆ–å›¾ä¸­ä¸å­˜åœ¨xï¼Œåˆ™è¿”å›-1
 int FirstNeighbor_OL(const OLGraph &G, VertexType x) {
     int xIndex = LocateVex_OL(G, x);
 
     if (xIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     if (G.xlist[xIndex].firstout != nullptr) {
         return G.xlist[xIndex].firstout->headvex;
     }
 
-    return -1; // Ã»ÓĞÁÚ½Óµã
+    return -1; // æ²¡æœ‰é‚»æ¥ç‚¹
 }
 
 // NextNeighbor(G,x,y):
-// ¼ÙÉèÍ¼GÖĞ¶¥µãyÊÇ¶¥µãxµÄÒ»¸öÁÚ½Óµã£¬·µ»Ø³ıyÍâ¶¥µãxµÄÏÂÒ»¸öÁÚ½ÓµãµÄ¶¥µãºÅ£¬ÈôyÊÇxµÄ×îºóÒ»¸öÁÚ½Óµã£¬Ôò·µ»Ø-1
+// å‡è®¾å›¾Gä¸­é¡¶ç‚¹yæ˜¯é¡¶ç‚¹xçš„ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè¿”å›é™¤yå¤–é¡¶ç‚¹xçš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹çš„é¡¶ç‚¹å·ï¼Œè‹¥yæ˜¯xçš„æœ€åä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œåˆ™è¿”å›-1
 int NextNeighbor_OL(const OLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcBox *p = G.xlist[xIndex].firstout;
 
-    // ²éÕÒ±ßx->y
+    // æŸ¥æ‰¾è¾¹x->y
     while (p != nullptr && p->headvex != yIndex) {
         p = p->tlink;
     }
 
     if (p == nullptr || p->tlink == nullptr) {
-        return -1; // ±ß²»´æÔÚ»òyÊÇ×îºóÒ»¸öÁÚ½Óµã
+        return -1; // è¾¹ä¸å­˜åœ¨æˆ–yæ˜¯æœ€åä¸€ä¸ªé‚»æ¥ç‚¹
     }
 
     return p->tlink->headvex;
 }
 
-// Get_edge_value(G,x,y): »ñÈ¡Í¼GÖĞ±ß<x,y>¶ÔÓ¦µÄÈ¨Öµ
+// Get_edge_value(G,x,y): è·å–å›¾Gä¸­è¾¹<x,y>å¯¹åº”çš„æƒå€¼
 EdgeType Get_edge_value_OL(const OLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return INFINITY; // ¶¥µã²»´æÔÚ
+        return INFINITY; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcBox *p = G.xlist[xIndex].firstout;
 
     while (p != nullptr) {
         if (p->headvex == yIndex) {
-            return p->weight; // ·µ»Ø±ßµÄÈ¨Öµ
+            return p->weight; // è¿”å›è¾¹çš„æƒå€¼
         }
         p = p->tlink;
     }
 
-    return INFINITY; // ±ß²»´æÔÚ
+    return INFINITY; // è¾¹ä¸å­˜åœ¨
 }
 
-// Set_edge_value(G,x,y,v): ÉèÖÃÍ¼GÖĞ±ß<x,y>¶ÔÓ¦µÄÈ¨ÖµÎªv
+// Set_edge_value(G,x,y,v): è®¾ç½®å›¾Gä¸­è¾¹<x,y>å¯¹åº”çš„æƒå€¼ä¸ºv
 bool Set_edge_value_OL(OLGraph &G, VertexType x, VertexType y, EdgeType v) {
     int xIndex = LocateVex_OL(G, x);
     int yIndex = LocateVex_OL(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     ArcBox *p = G.xlist[xIndex].firstout;
 
-    // ²éÕÒ±ß
+    // æŸ¥æ‰¾è¾¹
     while (p != nullptr && p->headvex != yIndex) {
         p = p->tlink;
     }
 
     if (p == nullptr) {
         if (v == INFINITY) {
-            return true; // ±ß±¾À´¾Í²»´æÔÚÇÒÈ¨ÖµÎªINFINITY£¬ÎŞĞè²Ù×÷
+            return true; // è¾¹æœ¬æ¥å°±ä¸å­˜åœ¨ä¸”æƒå€¼ä¸ºINFINITYï¼Œæ— éœ€æ“ä½œ
         }
 
-        // ±ß²»´æÔÚÇÒĞèÒªÌí¼Ó±ß
+        // è¾¹ä¸å­˜åœ¨ä¸”éœ€è¦æ·»åŠ è¾¹
         return AddEdge_OL(G, x, y, v);
     } else {
         if (v == INFINITY) {
-            // ´æÔÚ±ßµ«ĞèÒªÉ¾³ı
+            // å­˜åœ¨è¾¹ä½†éœ€è¦åˆ é™¤
             return RemoveEdge_OL(G, x, y);
         }
 
-        // ´æÔÚ±ßÇÒĞèÒª¸üĞÂÈ¨Öµ
+        // å­˜åœ¨è¾¹ä¸”éœ€è¦æ›´æ–°æƒå€¼
         p->weight = v;
         return true;
     }
 }
 
-// =============== 4. ÁÚ½Ó¶àÖØ±í±íÊ¾·¨ ===============
-// ³õÊ¼»¯ÁÚ½Ó¶àÖØ±í±íÊ¾µÄÍ¼
+// =============== 4. é‚»æ¥å¤šé‡è¡¨è¡¨ç¤ºæ³• ===============
+// åˆå§‹åŒ–é‚»æ¥å¤šé‡è¡¨è¡¨ç¤ºçš„å›¾
 void InitAMLGraph(AMLGraph &G) {
     G.vexnum = 0;
     G.edgenum = 0;
@@ -896,75 +896,75 @@ void InitAMLGraph(AMLGraph &G) {
     }
 }
 
-// ÔÚÁÚ½Ó¶àÖØ±íÖĞ¶¨Î»¶¥µãµÄÎ»ÖÃ
+// åœ¨é‚»æ¥å¤šé‡è¡¨ä¸­å®šä½é¡¶ç‚¹çš„ä½ç½®
 int LocateVex_AML(const AMLGraph &G, VertexType x) {
     for (int i = 0; i < G.vexnum; i++) {
         if (G.adjmulist[i].data == x) {
             return i;
         }
     }
-    return -1; // ¶¥µã²»´æÔÚ
+    return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
 }
 
-// Adjacent(G,x,y): ÅĞ¶ÏÍ¼GÊÇ·ñ´æÔÚ±ß(x,y)
+// Adjacent(G,x,y): åˆ¤æ–­å›¾Gæ˜¯å¦å­˜åœ¨è¾¹(x,y)
 bool Adjacent_AML(const AMLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
 
     while (p != nullptr) {
         if ((p->ivex == xIndex && p->jvex == yIndex) || (p->ivex == yIndex && p->jvex == xIndex)) {
-            return true; // ±ß´æÔÚ
+            return true; // è¾¹å­˜åœ¨
         }
 
-        // ÑØ×Åµ±Ç°¶¥µãµÄÏÂÒ»Ìõ±ßÇ°½ø
+        // æ²¿ç€å½“å‰é¡¶ç‚¹çš„ä¸‹ä¸€æ¡è¾¹å‰è¿›
         p = (p->ivex == xIndex) ? p->ilink : p->jlink;
     }
 
-    return false; // ±ß²»´æÔÚ
+    return false; // è¾¹ä¸å­˜åœ¨
 }
 
-// Neighbors(G,x): ÁĞ³öÍ¼GÖĞÓë¶¥µãxÁÚ½ÓµÄ±ß
+// Neighbors(G,x): åˆ—å‡ºå›¾Gä¸­ä¸é¡¶ç‚¹xé‚»æ¥çš„è¾¹
 vector<VertexType> Neighbors_AML(const AMLGraph &G, VertexType x) {
     vector<VertexType> neighbors;
     int xIndex = LocateVex_AML(G, x);
 
     if (xIndex == -1) {
-        return neighbors; // ¶¥µã²»´æÔÚ£¬·µ»Ø¿ÕÁĞ±í
+        return neighbors; // é¡¶ç‚¹ä¸å­˜åœ¨ï¼Œè¿”å›ç©ºåˆ—è¡¨
     }
 
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
 
     while (p != nullptr) {
-        // È·¶¨ÁíÒ»¸ö¶¥µã
+        // ç¡®å®šå¦ä¸€ä¸ªé¡¶ç‚¹
         int neighborIndex = (p->ivex == xIndex) ? p->jvex : p->ivex;
         neighbors.push_back(G.adjmulist[neighborIndex].data);
 
-        // ÑØ×Åµ±Ç°¶¥µãµÄÏÂÒ»Ìõ±ßÇ°½ø
+        // æ²¿ç€å½“å‰é¡¶ç‚¹çš„ä¸‹ä¸€æ¡è¾¹å‰è¿›
         p = (p->ivex == xIndex) ? p->ilink : p->jlink;
     }
 
     return neighbors;
 }
 
-// InsertVertex(G,x): ÔÚÍ¼GÖĞ²åÈë¶¥µãx
+// InsertVertex(G,x): åœ¨å›¾Gä¸­æ’å…¥é¡¶ç‚¹x
 bool InsertVertex_AML(AMLGraph &G, VertexType x) {
-    // ¼ì²éÍ¼ÊÇ·ñÒÑÂú
+    // æ£€æŸ¥å›¾æ˜¯å¦å·²æ»¡
     if (G.vexnum >= MaxVertexNum) {
         return false;
     }
 
-    // ¼ì²é¶¥µãÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥é¡¶ç‚¹æ˜¯å¦å·²å­˜åœ¨
     if (LocateVex_AML(G, x) != -1) {
         return false;
     }
 
-    // ²åÈë¶¥µã
+    // æ’å…¥é¡¶ç‚¹
     G.adjmulist[G.vexnum].data = x;
     G.adjmulist[G.vexnum].firstedge = nullptr;
 
@@ -972,24 +972,24 @@ bool InsertVertex_AML(AMLGraph &G, VertexType x) {
     return true;
 }
 
-// DeleteVertex(G,x): ´ÓÍ¼GÖĞÉ¾³ı¶¥µãx
+// DeleteVertex(G,x): ä»å›¾Gä¸­åˆ é™¤é¡¶ç‚¹x
 bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
     int xIndex = LocateVex_AML(G, x);
 
     if (xIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // É¾³ıËùÓĞÓëxÏà¹ØµÄ±ß
+    // åˆ é™¤æ‰€æœ‰ä¸xç›¸å…³çš„è¾¹
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
 
     while (p != nullptr) {
         EdgeNode *q = p;
 
-        // È·¶¨ÁíÒ»¸ö¶¥µã
+        // ç¡®å®šå¦ä¸€ä¸ªé¡¶ç‚¹
         int otherIndex = (p->ivex == xIndex) ? p->jvex : p->ivex;
 
-        // ´ÓÁíÒ»¸ö¶¥µãµÄ±ßÁ´±íÖĞÉ¾³ıµ±Ç°±ß
+        // ä»å¦ä¸€ä¸ªé¡¶ç‚¹çš„è¾¹é“¾è¡¨ä¸­åˆ é™¤å½“å‰è¾¹
         if (G.adjmulist[otherIndex].firstedge == p) {
             if (p->ivex == otherIndex) {
                 G.adjmulist[otherIndex].firstedge = p->ilink;
@@ -999,7 +999,7 @@ bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
         } else {
             EdgeNode *pre = G.adjmulist[otherIndex].firstedge;
 
-            // ²éÕÒÇ°Çı
+            // æŸ¥æ‰¾å‰é©±
             while (pre != nullptr) {
                 if (pre->ivex == otherIndex && pre->ilink == p) {
                     pre->ilink = p->ilink;
@@ -1009,19 +1009,19 @@ bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
                     break;
                 }
 
-                // ÑØ×Åµ±Ç°¶¥µãµÄÏÂÒ»Ìõ±ßÇ°½ø
+                // æ²¿ç€å½“å‰é¡¶ç‚¹çš„ä¸‹ä¸€æ¡è¾¹å‰è¿›
                 pre = (pre->ivex == otherIndex) ? pre->ilink : pre->jlink;
             }
         }
 
-        // ÑØ×Åµ±Ç°¶¥µãµÄÏÂÒ»Ìõ±ßÇ°½ø£¬µ«ÒªÏÈ±£´æÏÂÒ»Ìõ±ßµÄÖ¸Õë
+        // æ²¿ç€å½“å‰é¡¶ç‚¹çš„ä¸‹ä¸€æ¡è¾¹å‰è¿›ï¼Œä½†è¦å…ˆä¿å­˜ä¸‹ä¸€æ¡è¾¹çš„æŒ‡é’ˆ
         p = (p->ivex == xIndex) ? p->ilink : p->jlink;
 
         delete q;
         G.edgenum--;
     }
 
-    // ¸üĞÂËùÓĞ±ßÖĞ´óÓÚxIndexµÄ¶¥µã±àºÅ
+    // æ›´æ–°æ‰€æœ‰è¾¹ä¸­å¤§äºxIndexçš„é¡¶ç‚¹ç¼–å·
     for (int i = 0; i < G.vexnum; i++) {
         if (i == xIndex)
             continue;
@@ -1036,12 +1036,12 @@ bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
                 p->jvex--;
             }
 
-            // ÑØ×Åµ±Ç°¶¥µãµÄÏÂÒ»Ìõ±ßÇ°½ø
+            // æ²¿ç€å½“å‰é¡¶ç‚¹çš„ä¸‹ä¸€æ¡è¾¹å‰è¿›
             p = (p->ivex == i) ? p->ilink : p->jlink;
         }
     }
 
-    // É¾³ı¶¥µã£¬½«ºóÃæµÄ¶¥µãÇ°ÒÆ
+    // åˆ é™¤é¡¶ç‚¹ï¼Œå°†åé¢çš„é¡¶ç‚¹å‰ç§»
     for (int i = xIndex; i < G.vexnum - 1; i++) {
         G.adjmulist[i] = G.adjmulist[i + 1];
     }
@@ -1050,32 +1050,32 @@ bool DeleteVertex_AML(AMLGraph &G, VertexType x) {
     return true;
 }
 
-// AddEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)²»´æÔÚ£¬ÔòÏòÍ¼GÖĞÌí¼Ó¸Ã±ß
+// AddEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)ä¸å­˜åœ¨ï¼Œåˆ™å‘å›¾Gä¸­æ·»åŠ è¯¥è¾¹
 bool AddEdge_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ¼ì²é±ßÊÇ·ñÒÑ´æÔÚ
+    // æ£€æŸ¥è¾¹æ˜¯å¦å·²å­˜åœ¨
     if (Adjacent_AML(G, x, y)) {
-        return false; // ±ßÒÑ´æÔÚ
+        return false; // è¾¹å·²å­˜åœ¨
     }
 
-    // ´´½¨ĞÂ±ß
+    // åˆ›å»ºæ–°è¾¹
     auto *newEdge = new EdgeNode;
     newEdge->ivex = xIndex;
     newEdge->jvex = yIndex;
     newEdge->weight = weight;
     newEdge->visited = false;
 
-    // ²åÈëµ½xµÄ±ßÁ´±íÖĞ
+    // æ’å…¥åˆ°xçš„è¾¹é“¾è¡¨ä¸­
     newEdge->ilink = G.adjmulist[xIndex].firstedge;
     G.adjmulist[xIndex].firstedge = newEdge;
 
-    // ²åÈëµ½yµÄ±ßÁ´±íÖĞ
+    // æ’å…¥åˆ°yçš„è¾¹é“¾è¡¨ä¸­
     newEdge->jlink = G.adjmulist[yIndex].firstedge;
     G.adjmulist[yIndex].firstedge = newEdge;
 
@@ -1083,22 +1083,22 @@ bool AddEdge_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType weight) {
     return true;
 }
 
-// RemoveEdge(G,x,y): Èç¹ûÎŞÏò±ß(x,y)´æÔÚ£¬Ôò´ÓÍ¼GÖĞÉ¾³ı¸Ã±ß
+// RemoveEdge(G,x,y): å¦‚æœæ— å‘è¾¹(x,y)å­˜åœ¨ï¼Œåˆ™ä»å›¾Gä¸­åˆ é™¤è¯¥è¾¹
 bool RemoveEdge_AML(AMLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ²éÕÒ±ß(x,y)
+    // æŸ¥æ‰¾è¾¹(x,y)
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
     EdgeNode *pre_x = nullptr;
 
     while (p != nullptr) {
         if ((p->ivex == xIndex && p->jvex == yIndex) || (p->ivex == yIndex && p->jvex == xIndex)) {
-            break; // ÕÒµ½±ß
+            break; // æ‰¾åˆ°è¾¹
         }
 
         pre_x = p;
@@ -1106,10 +1106,10 @@ bool RemoveEdge_AML(AMLGraph &G, VertexType x, VertexType y) {
     }
 
     if (p == nullptr) {
-        return false; // ±ß²»´æÔÚ
+        return false; // è¾¹ä¸å­˜åœ¨
     }
 
-    // ´ÓxµÄ±ßÁ´±íÖĞÉ¾³ı
+    // ä»xçš„è¾¹é“¾è¡¨ä¸­åˆ é™¤
     if (pre_x == nullptr) {
         G.adjmulist[xIndex].firstedge = (p->ivex == xIndex) ? p->ilink : p->jlink;
     } else {
@@ -1120,7 +1120,7 @@ bool RemoveEdge_AML(AMLGraph &G, VertexType x, VertexType y) {
         }
     }
 
-    // ´ÓyµÄ±ßÁ´±íÖĞÉ¾³ı
+    // ä»yçš„è¾¹é“¾è¡¨ä¸­åˆ é™¤
     EdgeNode *pre_y = nullptr;
     EdgeNode *q = G.adjmulist[yIndex].firstedge;
 
@@ -1144,35 +1144,35 @@ bool RemoveEdge_AML(AMLGraph &G, VertexType x, VertexType y) {
     return true;
 }
 
-// FirstNeighbor(G,x): ÇóÍ¼GÖĞ¶¥µãxµÄµÚÒ»¸öÁÚ½Óµã£¬ÈôÓĞÔò·µ»Ø¶¥µãºÅ£¬ÈôxÃ»ÓĞÁÚ½Óµã»òÍ¼ÖĞ²»´æÔÚx£¬Ôò·µ»Ø-1
+// FirstNeighbor(G,x): æ±‚å›¾Gä¸­é¡¶ç‚¹xçš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè‹¥æœ‰åˆ™è¿”å›é¡¶ç‚¹å·ï¼Œè‹¥xæ²¡æœ‰é‚»æ¥ç‚¹æˆ–å›¾ä¸­ä¸å­˜åœ¨xï¼Œåˆ™è¿”å›-1
 int FirstNeighbor_AML(const AMLGraph &G, VertexType x) {
     int xIndex = LocateVex_AML(G, x);
 
     if (xIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
 
     if (p != nullptr) {
-        // ·µ»Ø±ßÉÏµÄÁíÒ»¸ö¶¥µã
+        // è¿”å›è¾¹ä¸Šçš„å¦ä¸€ä¸ªé¡¶ç‚¹
         return (p->ivex == xIndex) ? p->jvex : p->ivex;
     }
 
-    return -1; // Ã»ÓĞÁÚ½Óµã
+    return -1; // æ²¡æœ‰é‚»æ¥ç‚¹
 }
 
 // NextNeighbor(G,x,y):
-// ¼ÙÉèÍ¼GÖĞ¶¥µãyÊÇ¶¥µãxµÄÒ»¸öÁÚ½Óµã£¬·µ»Ø³ıyÍâ¶¥µãxµÄÏÂÒ»¸öÁÚ½ÓµãµÄ¶¥µãºÅ£¬ÈôyÊÇxµÄ×îºóÒ»¸öÁÚ½Óµã£¬Ôò·µ»Ø-1
+// å‡è®¾å›¾Gä¸­é¡¶ç‚¹yæ˜¯é¡¶ç‚¹xçš„ä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œè¿”å›é™¤yå¤–é¡¶ç‚¹xçš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹çš„é¡¶ç‚¹å·ï¼Œè‹¥yæ˜¯xçš„æœ€åä¸€ä¸ªé‚»æ¥ç‚¹ï¼Œåˆ™è¿”å›-1
 int NextNeighbor_AML(const AMLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return -1; // ¶¥µã²»´æÔÚ
+        return -1; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
-    // ²éÕÒ±ß(x,y)
+    // æŸ¥æ‰¾è¾¹(x,y)
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
     while (p) {
         if ((p->ivex == xIndex && p->jvex == yIndex) || (p->ivex == yIndex && p->jvex == xIndex)) {
@@ -1181,46 +1181,46 @@ int NextNeighbor_AML(const AMLGraph &G, VertexType x, VertexType y) {
         p = (p->ivex == xIndex) ? p->ilink : p->jlink;
     }
     if (!p)
-        return -1; // y²»ÊÇxµÄÁÚ½Óµã
+        return -1; // yä¸æ˜¯xçš„é‚»æ¥ç‚¹
 
-    // »ñÈ¡xµÄÏÂÒ»Ìõ±ß
+    // è·å–xçš„ä¸‹ä¸€æ¡è¾¹
     p = (p->ivex == xIndex) ? p->ilink : p->jlink;
     // if (!p)
-    //     return -1; // Ã»ÓĞÏÂÒ»¸öÁÚ½Óµã
+    //     return -1; // æ²¡æœ‰ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹
 
-    // ·µ»Ø±ßÉÏµÄÁíÒ»¸ö¶¥µã
+    // è¿”å›è¾¹ä¸Šçš„å¦ä¸€ä¸ªé¡¶ç‚¹
     return (p->ivex == xIndex) ? p->jvex : p->ivex;
 }
 
-// Get_edge_value(G,x,y): »ñÈ¡Í¼GÖĞ±ß(x,y)¶ÔÓ¦µÄÈ¨Öµ
+// Get_edge_value(G,x,y): è·å–å›¾Gä¸­è¾¹(x,y)å¯¹åº”çš„æƒå€¼
 EdgeType Get_edge_value_AML(const AMLGraph &G, VertexType x, VertexType y) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return INFINITY; // ¶¥µã²»´æÔÚ
+        return INFINITY; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
 
     while (p != nullptr) {
         if ((p->ivex == xIndex && p->jvex == yIndex) || (p->ivex == yIndex && p->jvex == xIndex)) {
-            return p->weight; // ·µ»Ø±ßµÄÈ¨Öµ
+            return p->weight; // è¿”å›è¾¹çš„æƒå€¼
         }
 
         p = (p->ivex == xIndex) ? p->ilink : p->jlink;
     }
 
-    return INFINITY; // ±ß²»´æÔÚ
+    return INFINITY; // è¾¹ä¸å­˜åœ¨
 }
 
-// Set_edge_value(G,x,y,v): ÉèÖÃÍ¼GÖĞ±ß(x,y)¶ÔÓ¦µÄÈ¨ÖµÎªv
+// Set_edge_value(G,x,y,v): è®¾ç½®å›¾Gä¸­è¾¹(x,y)å¯¹åº”çš„æƒå€¼ä¸ºv
 bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v) {
     int xIndex = LocateVex_AML(G, x);
     int yIndex = LocateVex_AML(G, y);
 
     if (xIndex == -1 || yIndex == -1) {
-        return false; // ¶¥µã²»´æÔÚ
+        return false; // é¡¶ç‚¹ä¸å­˜åœ¨
     }
 
     EdgeNode *p = G.adjmulist[xIndex].firstedge;
@@ -1228,11 +1228,11 @@ bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v) {
     while (p != nullptr) {
         if ((p->ivex == xIndex && p->jvex == yIndex) || (p->ivex == yIndex && p->jvex == xIndex)) {
             if (v == INFINITY) {
-                // ´æÔÚ±ßµ«ĞèÒªÉ¾³ı
+                // å­˜åœ¨è¾¹ä½†éœ€è¦åˆ é™¤
                 return RemoveEdge_AML(G, x, y);
             }
 
-            // ´æÔÚ±ßÇÒĞèÒª¸üĞÂÈ¨Öµ
+            // å­˜åœ¨è¾¹ä¸”éœ€è¦æ›´æ–°æƒå€¼
             p->weight = v;
             return true;
         }
@@ -1241,23 +1241,23 @@ bool Set_edge_value_AML(AMLGraph &G, VertexType x, VertexType y, EdgeType v) {
     }
 
     if (v == INFINITY) {
-        return true; // ±ß±¾À´¾Í²»´æÔÚÇÒÈ¨ÖµÎªINFINITY£¬ÎŞĞè²Ù×÷
+        return true; // è¾¹æœ¬æ¥å°±ä¸å­˜åœ¨ä¸”æƒå€¼ä¸ºINFINITYï¼Œæ— éœ€æ“ä½œ
     }
 
-    // ±ß²»´æÔÚÇÒĞèÒªÌí¼Ó±ß
+    // è¾¹ä¸å­˜åœ¨ä¸”éœ€è¦æ·»åŠ è¾¹
     return AddEdge_AML(G, x, y, v);
 }
 
-// Í¨ÓÃ´òÓ¡º¯ÊıÄ£°å
+// é€šç”¨æ‰“å°å‡½æ•°æ¨¡æ¿
 void PrintGraph(const MGraph &G) {
-    cout << "¶¥µã£º";
+    cout << "é¡¶ç‚¹ï¼š";
     for (int i = 0; i < G.vexnum; ++i)
         cout << G.vex[i] << " ";
-    cout << endl << "ÁÚ½Ó¾ØÕó£º" << endl;
+    cout << endl << "é‚»æ¥çŸ©é˜µï¼š" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
         for (int j = 0; j < G.vexnum; ++j) {
             if (G.edge[i][j] == INFINITY)
-                cout << "¡Ş ";
+                cout << "âˆ ";
             else
                 cout << G.edge[i][j] << " ";
         }
@@ -1266,7 +1266,7 @@ void PrintGraph(const MGraph &G) {
 }
 
 void PrintGraph(const ALGraph &G) {
-    cout << "Í¼µÄÁÚ½Ó±í£º" << endl;
+    cout << "å›¾çš„é‚»æ¥è¡¨ï¼š" << endl;
     for (int i = 0; i < G.vexnum; i++) {
         cout << G.vertices[i].data << ": ";
         for (ArcNode *p = G.vertices[i].firstarc; p; p = p->nextarc) {
@@ -1277,9 +1277,9 @@ void PrintGraph(const ALGraph &G) {
 }
 
 void PrintGraph(const OLGraph &G) {
-    cout << "Ê®×ÖÁ´±í£º" << endl;
+    cout << "åå­—é“¾è¡¨ï¼š" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
-        cout << G.xlist[i].data << "µÄ³ö»¡: ";
+        cout << G.xlist[i].data << "çš„å‡ºå¼§: ";
         ArcBox *p = G.xlist[i].firstout;
         while (p) {
             cout << G.xlist[p->headvex].data << "(" << p->weight << ") ";
@@ -1290,7 +1290,7 @@ void PrintGraph(const OLGraph &G) {
 }
 
 void PrintGraph(const AMLGraph &G) {
-    cout << "ÁÚ½Ó¶àÖØ±í£º" << endl;
+    cout << "é‚»æ¥å¤šé‡è¡¨ï¼š" << endl;
     for (int i = 0; i < G.vexnum; ++i) {
         cout << G.adjmulist[i].data << ": ";
         EdgeNode *p = G.adjmulist[i].firstedge;
@@ -1305,7 +1305,7 @@ void PrintGraph(const AMLGraph &G) {
 
 
 int main() {
-    // ÁÚ½Ó¾ØÕó
+    // é‚»æ¥çŸ©é˜µ
     MGraph mg;
     InitMGraph(mg);
     InsertVertex_M(mg, 'A');
@@ -1320,21 +1320,21 @@ int main() {
     AddEdge_M(mg, 'D', 'E', 6);
     PrintGraph(mg);
 
-    cout << "ÁÚ½Ó¾ØÕóAµÄÁÚ¾Ó: ";
+    cout << "é‚»æ¥çŸ©é˜µAçš„é‚»å±…: ";
     for (auto v: Neighbors_M(mg, 'A'))
         cout << v << " ";
     cout << endl;
     int idx = FirstNeighbor_M(mg, 'A');
     if (idx != -1)
-        cout << "AµÄµÚÒ»¸öÁÚ½Óµã: " << mg.vex[idx] << endl;
+        cout << "Açš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹: " << mg.vex[idx] << endl;
     idx = NextNeighbor_M(mg, 'A', mg.vex[idx]);
     if (idx != -1)
-        cout << "AµÄÏÂÒ»¸öÁÚ½Óµã: " << mg.vex[idx] << endl;
+        cout << "Açš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹: " << mg.vex[idx] << endl;
     RemoveEdge_M(mg, 'A', 'B');
     DeleteVertex_M(mg, 'E');
     PrintGraph(mg);
 
-    // ÁÚ½Ó±í
+    // é‚»æ¥è¡¨
     ALGraph alg;
     InitALGraph(alg);
     InsertVertex_AL(alg, 'A');
@@ -1349,21 +1349,21 @@ int main() {
     AddEdge_AL(alg, 'D', 'E', 6);
     PrintGraph(alg);
 
-    cout << "ÁÚ½Ó±íAµÄÁÚ¾Ó: ";
+    cout << "é‚»æ¥è¡¨Açš„é‚»å±…: ";
     for (auto v: Neighbors_AL(alg, 'A'))
         cout << v << " ";
     cout << endl;
     idx = FirstNeighbor_AL(alg, 'A');
     if (idx != -1)
-        cout << "AµÄµÚÒ»¸öÁÚ½Óµã: " << alg.vertices[idx].data << endl;
+        cout << "Açš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹: " << alg.vertices[idx].data << endl;
     idx = NextNeighbor_AL(alg, 'A', alg.vertices[idx].data);
     if (idx != -1)
-        cout << "AµÄÏÂÒ»¸öÁÚ½Óµã: " << alg.vertices[idx].data << endl;
+        cout << "Açš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹: " << alg.vertices[idx].data << endl;
     RemoveEdge_AL(alg, 'A', 'B');
     DeleteVertex_AL(alg, 'E');
     PrintGraph(alg);
 
-    // Ê®×ÖÁ´±í
+    // åå­—é“¾è¡¨
     OLGraph olg;
     InitOLGraph(olg);
     InsertVertex_OL(olg, 'A');
@@ -1378,21 +1378,21 @@ int main() {
     AddEdge_OL(olg, 'D', 'E', 6);
     PrintGraph(olg);
 
-    cout << "Ê®×ÖÁ´±íAµÄÁÚ¾Ó: ";
+    cout << "åå­—é“¾è¡¨Açš„é‚»å±…: ";
     for (auto v: Neighbors_OL(olg, 'A'))
         cout << v << " ";
     cout << endl;
     idx = FirstNeighbor_OL(olg, 'A');
     if (idx != -1)
-        cout << "AµÄµÚÒ»¸öÁÚ½Óµã: " << olg.xlist[idx].data << endl;
+        cout << "Açš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹: " << olg.xlist[idx].data << endl;
     idx = NextNeighbor_OL(olg, 'A', olg.xlist[idx].data);
     if (idx != -1)
-        cout << "AµÄÏÂÒ»¸öÁÚ½Óµã: " << olg.xlist[idx].data << endl;
+        cout << "Açš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹: " << olg.xlist[idx].data << endl;
     RemoveEdge_OL(olg, 'A', 'B');
     DeleteVertex_OL(olg, 'E');
     PrintGraph(olg);
 
-    // ÁÚ½Ó¶àÖØ±í
+    // é‚»æ¥å¤šé‡è¡¨
     AMLGraph amlg;
     InitAMLGraph(amlg);
     InsertVertex_AML(amlg, 'A');
@@ -1407,16 +1407,16 @@ int main() {
     AddEdge_AML(amlg, 'D', 'E', 6);
     PrintGraph(amlg);
 
-    cout << "ÁÚ½Ó¶àÖØ±íAµÄÁÚ¾Ó: ";
+    cout << "é‚»æ¥å¤šé‡è¡¨Açš„é‚»å±…: ";
     for (auto v: Neighbors_AML(amlg, 'A'))
         cout << v << " ";
     cout << endl;
     idx = FirstNeighbor_AML(amlg, 'A');
     if (idx != -1)
-        cout << "AµÄµÚÒ»¸öÁÚ½Óµã: " << amlg.adjmulist[idx].data << endl;
+        cout << "Açš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹: " << amlg.adjmulist[idx].data << endl;
     idx = NextNeighbor_AML(amlg, 'A', amlg.adjmulist[idx].data);
     if (idx != -1)
-        cout << "AµÄÏÂÒ»¸öÁÚ½Óµã: " << amlg.adjmulist[idx].data << endl;
+        cout << "Açš„ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹: " << amlg.adjmulist[idx].data << endl;
     RemoveEdge_AML(amlg, 'A', 'B');
     DeleteVertex_AML(amlg, 'E');
     PrintGraph(amlg);

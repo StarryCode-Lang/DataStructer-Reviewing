@@ -148,5 +148,7 @@ void PrintGraph(const ALGraph &G);
 void PrintGraph(const OLGraph &G);
 void PrintGraph(const AMLGraph &G);
 
+// 打印距离矩阵
+void PrintDistanceMatrix(const MGraph &G, int dist[][MaxVertexNum]);
 
 #endif // GRAPHOPERATION_H

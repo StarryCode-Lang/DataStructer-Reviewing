@@ -1,4 +1,3 @@
 #include <iostream>
-#include "6-0图的定义.h"
+#include "6-0GraphDefinition.h"
 using namespace std;
-

@@ -3,7 +3,7 @@
 #include <limits>
 #include <queue>
 #include <vector>
-#include "6-0图的定义.h"
+#include "6-0GraphDefinition.h"
 using namespace std;
 
 // Dijkstra算法 - 适用于邻接矩阵表示的图

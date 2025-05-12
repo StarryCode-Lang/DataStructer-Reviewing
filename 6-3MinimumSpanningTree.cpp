@@ -2,8 +2,8 @@
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "5-2并查集.h"
-#include "6-0图的定义.h"
+#include "5-2UnionFindSet.h"
+#include "6-0GraphDefinition.h"
 
 using namespace std;
 
