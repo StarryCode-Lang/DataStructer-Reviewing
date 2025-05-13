@@ -23,4 +23,5 @@ add_executable(DSCPP
         6-4ShortestPath.cpp
         6-5TopologicalSort.cpp
         sort.cpp
+        6-6AOECriticalPath.cpp
 )

@@ -85,6 +85,10 @@ void DFSTraverse(const Graph &G);
 void DFS(const MGraph &G, int i);
 void DFS(const ALGraph &G, int i);
 
+// 拓扑排序
+void FindInDegree(const ALGraph &G, vector<int> &inDegree);
+bool TopologicalSort(const ALGraph &G);
+
 // 邻接矩阵
 void InitMGraph(MGraph &G);
 int LocateVex_M(const MGraph &G, VertexType x);
