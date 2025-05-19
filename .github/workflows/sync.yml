@@ -7,11 +7,12 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Mirror to Gitee
-        uses: Yikun/hub-mirror-action@master
-        with:
-          src: github/StarryCode-Lang
-          dst: gitee/fan-ruibo
-          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-          dst_token: ${{ secrets.GITEE_TOKEN }}
-          account_type: user
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@master
+      with:
+        # 支持Gitee, Github and Gitlab
+        src: github/StarryCode-Lang
+        dst: gitee/fan-ruibo
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        account_type: org
