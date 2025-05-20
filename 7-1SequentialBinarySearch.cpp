@@ -10,7 +10,7 @@ struct BSTNode {
     int data;
     BSTNode *lchild;
     BSTNode *rchild;
-    BSTNode(int K) {
+    explicit BSTNode(int K) {
         data = K;
         lchild = rchild = nullptr;
     }
@@ -57,8 +57,9 @@ BSTNode *BST_Rsearch(BSTNode *BST, const int key) {
         return BST;
     if (key < BST->data)
         return BST_Rsearch(BST->lchild, key);
-    else if (key > BST->data)
+    if (key > BST->data)
         return BST_Rsearch(BST->rchild, key);
+    return nullptr;
 }
 
 void BST_Insert(BSTNode *&BST, const int key) {
@@ -75,7 +76,7 @@ void Creat_BST(BSTNode *&BST, int str[], int n) {
     BST = nullptr;
     int i = 0;
     while (i < n) {
-        BST_insert(BST, str[i]);
+        BST_Insert(BST, str[i]);
         i++;
     }
 }
