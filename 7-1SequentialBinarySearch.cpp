@@ -6,11 +6,15 @@ typedef struct {
     int TableLen;
 } SSTable;
 
-typedef struct BSTNode {
+struct BSTNode {
     int data;
-    struct BSTNode *lchild;
-    struct BSTNode *rchild;
-} BSTNode;
+    BSTNode *lchild;
+    BSTNode *rchild;
+    BSTNode(int K) {
+        data = K;
+        lchild = rchild = nullptr;
+    }
+};
 
 int Search_Seq(const SSTable ST, const int key) {
     int i;
@@ -40,24 +44,30 @@ const BSTNode *BSTSearch(const BSTNode *BST, const int key) {
     while (BST != nullptr && key != BST->data) {
         if (key < BST->data)
             BST = BST->lchild;
-        else
+        else if (key > BST->data)
             BST = BST->rchild;
+        else
+            return BST;
     }
-    return BST;
+    return nullptr;
 }
 
-int BST_insert(BSTNode *&BST, const int k) {
+BSTNode *BST_Rsearch(BSTNode *BST, const int key) {
+    if (BST == nullptr || BST->data == key)
+        return BST;
+    if (key < BST->data)
+        return BST_Rsearch(BST->lchild, key);
+    else if (key > BST->data)
+        return BST_Rsearch(BST->rchild, key);
+}
+
+void BST_Insert(BSTNode *&BST, const int key) {
     if (BST == nullptr) {
-        BST = new BSTNode;
-        BST->data = k;
-        BST->lchild = BST->rchild = nullptr;
-        return 1;
-    } else if (k == BST->data) {
-        return 0;
-    } else if (k < BST->data) {
-        return BST_insert(BST->lchild, k);
-    } else {
-        return BST_insert(BST->rchild, k);
+        BST = new BSTNode(key);
+    } else if (key < BST->data) {
+        BST->lchild = BST_Rsearch(BST->lchild, key);
+    } else if (key > BST->data) {
+        BST->rchild = BST_Rsearch(BST->rchild, key);
     }
 }
 
@@ -77,17 +87,15 @@ void Delete_BST(BSTNode *&BST, const int key) {
         Delete_BST(BST->lchild, key);
     } else if (key > BST->data) {
         Delete_BST(BST->rchild, key);
+    } else if (BST->lchild != nullptr && BST->rchild != nullptr) {
+        BSTNode *s = BST->rchild;
+        while (s->lchild != nullptr)
+            s = s->lchild;
+        BST->data = s->data;
+        Delete_BST(BST->lchild, key);
     } else {
-        if (BST->lchild == nullptr || BST->rchild == nullptr) {
-            BSTNode *tmp = BST;
-            BST = (BST->lchild != nullptr) ? BST->lchild : BST->rchild;
-            delete tmp;
-        } else {
-            BSTNode *succ = BST->rchild;
-            while (succ->lchild)
-                succ = succ->lchild;
-            BST->data = succ->data;
-            Delete_BST(BST->rchild, succ->data);
-        }
+        BSTNode *oldroot = BST;
+        BST = (BST->lchild == nullptr) ? BST->rchild : BST->lchild;
+        delete oldroot;
     }
 }
