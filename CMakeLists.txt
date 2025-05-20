@@ -25,5 +25,5 @@ add_executable(DSCPP
         sort.cpp
         6-6AOECriticalPath.cpp
         7-1SequentialBinarySearch.cpp
-        7-2BSTandAVL.cpp
+        7-2BST.cpp
 )
