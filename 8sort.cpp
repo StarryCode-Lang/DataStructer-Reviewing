@@ -54,3 +54,48 @@ void ShellSort(int A[], int n) {
     }
 }
 // =============================
+
+
+// =============================
+// 交换排序算法
+// 1. 冒泡排序
+void BubbleSort(int A[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        bool flag = false;
+        for (int j = n - 1; j > i; --j) {
+            if (A[j] < A[j - 1]) {
+                swap(A[j], A[j - 1]);
+                flag = true;
+            }
+        }
+        if (!flag) {
+            return;
+        }
+    }
+}
+
+// 2. 快速排序
+int Partition(int A[], int low, int high) {
+    int pivot = A[low];
+    while (low < high) {
+        while (low < high && A[high] >= pivot) {
+            --high;
+        }
+        A[low] = A[high];
+        while (low < high && A[low] <= pivot) {
+            ++low;
+        }
+        A[high] = A[low];
+    }
+    A[low] = pivot;
+    return low;
+}
+
+void QuickSort(int A[], int low, int high) {
+    if (low < high) {
+        int pivotpos = Partition(A, low, high);
+        QuickSort(A, low, pivotpos - 1);
+        QuickSort(A, pivotpos + 1, high);
+    }
+}
+// =============================
