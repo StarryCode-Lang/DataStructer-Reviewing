@@ -4,8 +4,6 @@ using namespace std;
 // =============================
 // 插入排序算法
 // 1. 直接插入排序
-
-
 void InsertSort(int A[], int n) {
     int j;
     for (int i = 2; i <= n; i++) {
@@ -40,7 +38,6 @@ void BinaryInsertSort(int A[], int n) {
     }
 }
 
-
 // 3. 希尔排序
 void ShellSort(int A[], int n) {
     int dk, i, j;
@@ -56,6 +53,4 @@ void ShellSort(int A[], int n) {
         }
     }
 }
-
-
 // =============================
