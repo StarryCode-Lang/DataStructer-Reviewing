@@ -1,0 +1,222 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.30"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "DSCPP",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "AOECriticalPath::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AOECriticalPath-Debug-6a1136cb3858a96a4d0e.json",
+					"name" : "AOECriticalPath",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BST::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BST-Debug-df811071c9ae84120428.json",
+					"name" : "BST",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BinaryTree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BinaryTree-Debug-55a0d3b77c9c4e35686d.json",
+					"name" : "BinaryTree",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExpressionStack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExpressionStack-Debug-41c05d4b5a388cce454f.json",
+					"name" : "ExpressionStack",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FibonacciNonRecursive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FibonacciNonRecursive-Debug-8e9af2b14023459151f2.json",
+					"name" : "FibonacciNonRecursive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GraphOperations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GraphOperations-Debug-d4648b52c1d18056ba26.json",
+					"name" : "GraphOperations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GraphTraversal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GraphTraversal-Debug-072e5096dab24d73cd37.json",
+					"name" : "GraphTraversal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "LinkedList::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LinkedList-Debug-17d56914cf5e541143a8.json",
+					"name" : "LinkedList",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MinimumSpanningTree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MinimumSpanningTree-Debug-276e3ddb729e308de035.json",
+					"name" : "MinimumSpanningTree",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QueueBinaryTreeLevelTraversal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QueueBinaryTreeLevelTraversal-Debug-bbfc56f3b0a9798deeee.json",
+					"name" : "QueueBinaryTreeLevelTraversal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SequentialBinarySearch::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SequentialBinarySearch-Debug-b576047ce727516555ab.json",
+					"name" : "SequentialBinarySearch",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SequentialList::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SequentialList-Debug-321830fb5924b504f4e5.json",
+					"name" : "SequentialList",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ShortestPath::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ShortestPath-Debug-151ad6e24769aa7b6920.json",
+					"name" : "ShortestPath",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SmartPointer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SmartPointer-Debug-b317f8dd5d389147b830.json",
+					"name" : "SmartPointer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Sort::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Sort-Debug-1154e16b672f6605639f.json",
+					"name" : "Sort",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SortAlgorithms::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SortAlgorithms-Debug-6daae24b6dbb53c3a671.json",
+					"name" : "SortAlgorithms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Stack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Stack-Debug-0e37976f47044615e45e.json",
+					"name" : "Stack",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "StringKMP::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StringKMP-Debug-83c558426ae591ddb48a.json",
+					"name" : "StringKMP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TopologicalSort::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TopologicalSort-Debug-0665969de1efc8f4bdf8.json",
+					"name" : "TopologicalSort",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Desktop/DataStructer-Reviewing/cmake-build-debug",
+		"source" : "D:/Desktop/DataStructer-Reviewing"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

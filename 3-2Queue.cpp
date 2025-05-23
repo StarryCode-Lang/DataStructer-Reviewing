@@ -48,3 +48,19 @@ void ClearQueue(LinkQueue &Q) {
     Q.rear = Q.front; // 队尾回到头节点
     cout << "队列已清空" << endl;
 }
+
+// 出队操作（从队首删除）
+bool DeQueue(LinkQueue &Q, BiTree &value) {
+    if (IsEmpty(Q)) {
+        cout << "队列为空，无法出队" << endl;
+        return false;
+    }
+    auto p = Q.front->next; // 获取第一个数据节点
+    value = p->data; // 保存数据
+    Q.front->next = p->next; // 头节点指向下一个节点
+    if (Q.rear == p) { // 如果队列中只有一个节点
+        Q.rear = Q.front; // 更新队尾
+    }
+    // p 自动释放
+    return true;
+}

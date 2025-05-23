@@ -17,10 +17,11 @@ typedef struct ThreadNode {
 using BiTree = shared_ptr<BiNode>;
 using ThreadTree = shared_ptr<ThreadNode>;
 
-void visit(const auto &T) { cout << T->data << " "; }
+void visit(const BiTree &T) { cout << T->data << " "; }
+void visit(const ThreadTree &T) { cout << T->data_t << " "; }
 
 // 线索二叉树
-void InThread(ThreadTree &p, ThreadTree &pre) {
+void InThread(const ThreadTree &p, ThreadTree &pre) {
     if (p) {
         InThread(p->lchild, pre);
         if (!p->lchild) {
@@ -36,7 +37,7 @@ void InThread(ThreadTree &p, ThreadTree &pre) {
     }
 }
 
-void CreateInThread(ThreadTree &T) {
+void CreateInThread(const ThreadTree &T) {
     ThreadTree pre = nullptr;
     if (T) {
         InThread(T, pre);

@@ -41,192 +41,840 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/Desktop/DataStructer-Reviewing/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target DSCPP
+# Object build statements for EXECUTABLE target SmartPointer
 
 
 #############################################
-# Order-only phony target for DSCPP
+# Order-only phony target for SmartPointer
 
-build cmake_object_order_depends_target_DSCPP: phony || .
+build cmake_object_order_depends_target_SmartPointer: phony || .
 
-build CMakeFiles/DSCPP.dir/smart-point.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/smart-point.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\smart-point.cpp.obj.d
+build CMakeFiles/SmartPointer.dir/smart-point.cpp.obj: CXX_COMPILER__SmartPointer_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/smart-point.cpp || cmake_object_order_depends_target_SmartPointer
+  DEP_FILE = CMakeFiles\SmartPointer.dir\smart-point.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
+  OBJECT_DIR = CMakeFiles\SmartPointer.dir
+  OBJECT_FILE_DIR = CMakeFiles\SmartPointer.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SmartPointer.dir\
+  TARGET_PDB = SmartPointer.pdb
 
-build CMakeFiles/DSCPP.dir/2-2SequentialList.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/2-2SequentialList.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\2-2SequentialList.cpp.obj.d
+build CMakeFiles/SmartPointer.dir/3-2Queue.cpp.obj: CXX_COMPILER__SmartPointer_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_SmartPointer
+  DEP_FILE = CMakeFiles\SmartPointer.dir\3-2Queue.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/2-3LinkedList.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/2-3LinkedList.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\2-3LinkedList.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/3-1Stack.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-1Stack.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\3-1Stack.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/3-2Queue.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\3-2Queue.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/3-3-1ExpressionStack.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-1ExpressionStack.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\3-3-1ExpressionStack.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/3-3-2FibonacciNonRecursive.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-2FibonacciNonRecursive.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\3-3-2FibonacciNonRecursive.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/3-3-3QueueBinaryTreeLevelTraversal.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-3QueueBinaryTreeLevelTraversal.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\3-3-3QueueBinaryTreeLevelTraversal.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/4StringDefinitionAndKMP.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/4StringDefinitionAndKMP.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\4StringDefinitionAndKMP.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/5-1BinaryTree.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/5-1BinaryTree.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\5-1BinaryTree.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-1GraphOperations.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-1GraphOperations.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-1GraphOperations.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-2GraphTraversal.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-2GraphTraversal.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-2GraphTraversal.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-3MinimumSpanningTree.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-3MinimumSpanningTree.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-3MinimumSpanningTree.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-4ShortestPath.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-4ShortestPath.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-4ShortestPath.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-5TopologicalSort.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-5TopologicalSort.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-5TopologicalSort.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/sort.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/sort.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\sort.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/6-6AOECriticalPath.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-6AOECriticalPath.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\6-6AOECriticalPath.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/7-1SequentialBinarySearch.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/7-1SequentialBinarySearch.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\7-1SequentialBinarySearch.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/7-2BST.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/7-2BST.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\7-2BST.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
-
-build CMakeFiles/DSCPP.dir/8sort.cpp.obj: CXX_COMPILER__DSCPP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/8sort.cpp || cmake_object_order_depends_target_DSCPP
-  DEP_FILE = CMakeFiles\DSCPP.dir\8sort.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSCPP.dir
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_PDB = DSCPP.pdb
+  OBJECT_DIR = CMakeFiles\SmartPointer.dir
+  OBJECT_FILE_DIR = CMakeFiles\SmartPointer.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SmartPointer.dir\
+  TARGET_PDB = SmartPointer.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target DSCPP
+# Link build statements for EXECUTABLE target SmartPointer
 
 
 #############################################
-# Link the executable DSCPP.exe
+# Link the executable SmartPointer.exe
 
-build DSCPP.exe: CXX_EXECUTABLE_LINKER__DSCPP_Debug CMakeFiles/DSCPP.dir/smart-point.cpp.obj CMakeFiles/DSCPP.dir/2-2SequentialList.cpp.obj CMakeFiles/DSCPP.dir/2-3LinkedList.cpp.obj CMakeFiles/DSCPP.dir/3-1Stack.cpp.obj CMakeFiles/DSCPP.dir/3-2Queue.cpp.obj CMakeFiles/DSCPP.dir/3-3-1ExpressionStack.cpp.obj CMakeFiles/DSCPP.dir/3-3-2FibonacciNonRecursive.cpp.obj CMakeFiles/DSCPP.dir/3-3-3QueueBinaryTreeLevelTraversal.cpp.obj CMakeFiles/DSCPP.dir/4StringDefinitionAndKMP.cpp.obj CMakeFiles/DSCPP.dir/5-1BinaryTree.cpp.obj CMakeFiles/DSCPP.dir/6-1GraphOperations.cpp.obj CMakeFiles/DSCPP.dir/6-2GraphTraversal.cpp.obj CMakeFiles/DSCPP.dir/6-3MinimumSpanningTree.cpp.obj CMakeFiles/DSCPP.dir/6-4ShortestPath.cpp.obj CMakeFiles/DSCPP.dir/6-5TopologicalSort.cpp.obj CMakeFiles/DSCPP.dir/sort.cpp.obj CMakeFiles/DSCPP.dir/6-6AOECriticalPath.cpp.obj CMakeFiles/DSCPP.dir/7-1SequentialBinarySearch.cpp.obj CMakeFiles/DSCPP.dir/7-2BST.cpp.obj CMakeFiles/DSCPP.dir/8sort.cpp.obj
+build SmartPointer.exe: CXX_EXECUTABLE_LINKER__SmartPointer_Debug CMakeFiles/SmartPointer.dir/smart-point.cpp.obj CMakeFiles/SmartPointer.dir/3-2Queue.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\DSCPP.dir
+  OBJECT_DIR = CMakeFiles\SmartPointer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\DSCPP.dir\
-  TARGET_FILE = DSCPP.exe
-  TARGET_IMPLIB = libDSCPP.dll.a
-  TARGET_PDB = DSCPP.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\SmartPointer.dir\
+  TARGET_FILE = SmartPointer.exe
+  TARGET_IMPLIB = libSmartPointer.dll.a
+  TARGET_PDB = SmartPointer.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target SequentialList
+
+
+#############################################
+# Order-only phony target for SequentialList
+
+build cmake_object_order_depends_target_SequentialList: phony || .
+
+build CMakeFiles/SequentialList.dir/2-2SequentialList.cpp.obj: CXX_COMPILER__SequentialList_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/2-2SequentialList.cpp || cmake_object_order_depends_target_SequentialList
+  DEP_FILE = CMakeFiles\SequentialList.dir\2-2SequentialList.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SequentialList.dir
+  OBJECT_FILE_DIR = CMakeFiles\SequentialList.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialList.dir\
+  TARGET_PDB = SequentialList.pdb
+
+build CMakeFiles/SequentialList.dir/3-2Queue.cpp.obj: CXX_COMPILER__SequentialList_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_SequentialList
+  DEP_FILE = CMakeFiles\SequentialList.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SequentialList.dir
+  OBJECT_FILE_DIR = CMakeFiles\SequentialList.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialList.dir\
+  TARGET_PDB = SequentialList.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target SequentialList
+
+
+#############################################
+# Link the executable SequentialList.exe
+
+build SequentialList.exe: CXX_EXECUTABLE_LINKER__SequentialList_Debug CMakeFiles/SequentialList.dir/2-2SequentialList.cpp.obj CMakeFiles/SequentialList.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\SequentialList.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialList.dir\
+  TARGET_FILE = SequentialList.exe
+  TARGET_IMPLIB = libSequentialList.dll.a
+  TARGET_PDB = SequentialList.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LinkedList
+
+
+#############################################
+# Order-only phony target for LinkedList
+
+build cmake_object_order_depends_target_LinkedList: phony || .
+
+build CMakeFiles/LinkedList.dir/2-3LinkedList.cpp.obj: CXX_COMPILER__LinkedList_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/2-3LinkedList.cpp || cmake_object_order_depends_target_LinkedList
+  DEP_FILE = CMakeFiles\LinkedList.dir\2-3LinkedList.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LinkedList.dir
+  OBJECT_FILE_DIR = CMakeFiles\LinkedList.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LinkedList.dir\
+  TARGET_PDB = LinkedList.pdb
+
+build CMakeFiles/LinkedList.dir/3-2Queue.cpp.obj: CXX_COMPILER__LinkedList_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_LinkedList
+  DEP_FILE = CMakeFiles\LinkedList.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LinkedList.dir
+  OBJECT_FILE_DIR = CMakeFiles\LinkedList.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LinkedList.dir\
+  TARGET_PDB = LinkedList.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LinkedList
+
+
+#############################################
+# Link the executable LinkedList.exe
+
+build LinkedList.exe: CXX_EXECUTABLE_LINKER__LinkedList_Debug CMakeFiles/LinkedList.dir/2-3LinkedList.cpp.obj CMakeFiles/LinkedList.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LinkedList.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\LinkedList.dir\
+  TARGET_FILE = LinkedList.exe
+  TARGET_IMPLIB = libLinkedList.dll.a
+  TARGET_PDB = LinkedList.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Stack
+
+
+#############################################
+# Order-only phony target for Stack
+
+build cmake_object_order_depends_target_Stack: phony || .
+
+build CMakeFiles/Stack.dir/3-1Stack.cpp.obj: CXX_COMPILER__Stack_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-1Stack.cpp || cmake_object_order_depends_target_Stack
+  DEP_FILE = CMakeFiles\Stack.dir\3-1Stack.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Stack.dir
+  OBJECT_FILE_DIR = CMakeFiles\Stack.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Stack.dir\
+  TARGET_PDB = Stack.pdb
+
+build CMakeFiles/Stack.dir/3-2Queue.cpp.obj: CXX_COMPILER__Stack_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_Stack
+  DEP_FILE = CMakeFiles\Stack.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Stack.dir
+  OBJECT_FILE_DIR = CMakeFiles\Stack.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Stack.dir\
+  TARGET_PDB = Stack.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Stack
+
+
+#############################################
+# Link the executable Stack.exe
+
+build Stack.exe: CXX_EXECUTABLE_LINKER__Stack_Debug CMakeFiles/Stack.dir/3-1Stack.cpp.obj CMakeFiles/Stack.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Stack.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\Stack.dir\
+  TARGET_FILE = Stack.exe
+  TARGET_IMPLIB = libStack.dll.a
+  TARGET_PDB = Stack.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ExpressionStack
+
+
+#############################################
+# Order-only phony target for ExpressionStack
+
+build cmake_object_order_depends_target_ExpressionStack: phony || .
+
+build CMakeFiles/ExpressionStack.dir/3-3-1ExpressionStack.cpp.obj: CXX_COMPILER__ExpressionStack_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-1ExpressionStack.cpp || cmake_object_order_depends_target_ExpressionStack
+  DEP_FILE = CMakeFiles\ExpressionStack.dir\3-3-1ExpressionStack.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ExpressionStack.dir
+  OBJECT_FILE_DIR = CMakeFiles\ExpressionStack.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ExpressionStack.dir\
+  TARGET_PDB = ExpressionStack.pdb
+
+build CMakeFiles/ExpressionStack.dir/3-2Queue.cpp.obj: CXX_COMPILER__ExpressionStack_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_ExpressionStack
+  DEP_FILE = CMakeFiles\ExpressionStack.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ExpressionStack.dir
+  OBJECT_FILE_DIR = CMakeFiles\ExpressionStack.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ExpressionStack.dir\
+  TARGET_PDB = ExpressionStack.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ExpressionStack
+
+
+#############################################
+# Link the executable ExpressionStack.exe
+
+build ExpressionStack.exe: CXX_EXECUTABLE_LINKER__ExpressionStack_Debug CMakeFiles/ExpressionStack.dir/3-3-1ExpressionStack.cpp.obj CMakeFiles/ExpressionStack.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\ExpressionStack.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\ExpressionStack.dir\
+  TARGET_FILE = ExpressionStack.exe
+  TARGET_IMPLIB = libExpressionStack.dll.a
+  TARGET_PDB = ExpressionStack.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target FibonacciNonRecursive
+
+
+#############################################
+# Order-only phony target for FibonacciNonRecursive
+
+build cmake_object_order_depends_target_FibonacciNonRecursive: phony || .
+
+build CMakeFiles/FibonacciNonRecursive.dir/3-3-2FibonacciNonRecursive.cpp.obj: CXX_COMPILER__FibonacciNonRecursive_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-2FibonacciNonRecursive.cpp || cmake_object_order_depends_target_FibonacciNonRecursive
+  DEP_FILE = CMakeFiles\FibonacciNonRecursive.dir\3-3-2FibonacciNonRecursive.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\FibonacciNonRecursive.dir
+  OBJECT_FILE_DIR = CMakeFiles\FibonacciNonRecursive.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FibonacciNonRecursive.dir\
+  TARGET_PDB = FibonacciNonRecursive.pdb
+
+build CMakeFiles/FibonacciNonRecursive.dir/3-2Queue.cpp.obj: CXX_COMPILER__FibonacciNonRecursive_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_FibonacciNonRecursive
+  DEP_FILE = CMakeFiles\FibonacciNonRecursive.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\FibonacciNonRecursive.dir
+  OBJECT_FILE_DIR = CMakeFiles\FibonacciNonRecursive.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FibonacciNonRecursive.dir\
+  TARGET_PDB = FibonacciNonRecursive.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target FibonacciNonRecursive
+
+
+#############################################
+# Link the executable FibonacciNonRecursive.exe
+
+build FibonacciNonRecursive.exe: CXX_EXECUTABLE_LINKER__FibonacciNonRecursive_Debug CMakeFiles/FibonacciNonRecursive.dir/3-3-2FibonacciNonRecursive.cpp.obj CMakeFiles/FibonacciNonRecursive.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\FibonacciNonRecursive.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\FibonacciNonRecursive.dir\
+  TARGET_FILE = FibonacciNonRecursive.exe
+  TARGET_IMPLIB = libFibonacciNonRecursive.dll.a
+  TARGET_PDB = FibonacciNonRecursive.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target QueueBinaryTreeLevelTraversal
+
+
+#############################################
+# Order-only phony target for QueueBinaryTreeLevelTraversal
+
+build cmake_object_order_depends_target_QueueBinaryTreeLevelTraversal: phony || .
+
+build CMakeFiles/QueueBinaryTreeLevelTraversal.dir/3-3-3QueueBinaryTreeLevelTraversal.cpp.obj: CXX_COMPILER__QueueBinaryTreeLevelTraversal_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-3-3QueueBinaryTreeLevelTraversal.cpp || cmake_object_order_depends_target_QueueBinaryTreeLevelTraversal
+  DEP_FILE = CMakeFiles\QueueBinaryTreeLevelTraversal.dir\3-3-3QueueBinaryTreeLevelTraversal.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\QueueBinaryTreeLevelTraversal.dir
+  OBJECT_FILE_DIR = CMakeFiles\QueueBinaryTreeLevelTraversal.dir
+  TARGET_COMPILE_PDB = CMakeFiles\QueueBinaryTreeLevelTraversal.dir\
+  TARGET_PDB = QueueBinaryTreeLevelTraversal.pdb
+
+build CMakeFiles/QueueBinaryTreeLevelTraversal.dir/3-2Queue.cpp.obj: CXX_COMPILER__QueueBinaryTreeLevelTraversal_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_QueueBinaryTreeLevelTraversal
+  DEP_FILE = CMakeFiles\QueueBinaryTreeLevelTraversal.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\QueueBinaryTreeLevelTraversal.dir
+  OBJECT_FILE_DIR = CMakeFiles\QueueBinaryTreeLevelTraversal.dir
+  TARGET_COMPILE_PDB = CMakeFiles\QueueBinaryTreeLevelTraversal.dir\
+  TARGET_PDB = QueueBinaryTreeLevelTraversal.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target QueueBinaryTreeLevelTraversal
+
+
+#############################################
+# Link the executable QueueBinaryTreeLevelTraversal.exe
+
+build QueueBinaryTreeLevelTraversal.exe: CXX_EXECUTABLE_LINKER__QueueBinaryTreeLevelTraversal_Debug CMakeFiles/QueueBinaryTreeLevelTraversal.dir/3-3-3QueueBinaryTreeLevelTraversal.cpp.obj CMakeFiles/QueueBinaryTreeLevelTraversal.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\QueueBinaryTreeLevelTraversal.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\QueueBinaryTreeLevelTraversal.dir\
+  TARGET_FILE = QueueBinaryTreeLevelTraversal.exe
+  TARGET_IMPLIB = libQueueBinaryTreeLevelTraversal.dll.a
+  TARGET_PDB = QueueBinaryTreeLevelTraversal.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target StringKMP
+
+
+#############################################
+# Order-only phony target for StringKMP
+
+build cmake_object_order_depends_target_StringKMP: phony || .
+
+build CMakeFiles/StringKMP.dir/4StringDefinitionAndKMP.cpp.obj: CXX_COMPILER__StringKMP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/4StringDefinitionAndKMP.cpp || cmake_object_order_depends_target_StringKMP
+  DEP_FILE = CMakeFiles\StringKMP.dir\4StringDefinitionAndKMP.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\StringKMP.dir
+  OBJECT_FILE_DIR = CMakeFiles\StringKMP.dir
+  TARGET_COMPILE_PDB = CMakeFiles\StringKMP.dir\
+  TARGET_PDB = StringKMP.pdb
+
+build CMakeFiles/StringKMP.dir/3-2Queue.cpp.obj: CXX_COMPILER__StringKMP_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_StringKMP
+  DEP_FILE = CMakeFiles\StringKMP.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\StringKMP.dir
+  OBJECT_FILE_DIR = CMakeFiles\StringKMP.dir
+  TARGET_COMPILE_PDB = CMakeFiles\StringKMP.dir\
+  TARGET_PDB = StringKMP.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target StringKMP
+
+
+#############################################
+# Link the executable StringKMP.exe
+
+build StringKMP.exe: CXX_EXECUTABLE_LINKER__StringKMP_Debug CMakeFiles/StringKMP.dir/4StringDefinitionAndKMP.cpp.obj CMakeFiles/StringKMP.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\StringKMP.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\StringKMP.dir\
+  TARGET_FILE = StringKMP.exe
+  TARGET_IMPLIB = libStringKMP.dll.a
+  TARGET_PDB = StringKMP.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target BinaryTree
+
+
+#############################################
+# Order-only phony target for BinaryTree
+
+build cmake_object_order_depends_target_BinaryTree: phony || .
+
+build CMakeFiles/BinaryTree.dir/5-1BinaryTree.cpp.obj: CXX_COMPILER__BinaryTree_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/5-1BinaryTree.cpp || cmake_object_order_depends_target_BinaryTree
+  DEP_FILE = CMakeFiles\BinaryTree.dir\5-1BinaryTree.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BinaryTree.dir
+  OBJECT_FILE_DIR = CMakeFiles\BinaryTree.dir
+  TARGET_COMPILE_PDB = CMakeFiles\BinaryTree.dir\
+  TARGET_PDB = BinaryTree.pdb
+
+build CMakeFiles/BinaryTree.dir/3-2Queue.cpp.obj: CXX_COMPILER__BinaryTree_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_BinaryTree
+  DEP_FILE = CMakeFiles\BinaryTree.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BinaryTree.dir
+  OBJECT_FILE_DIR = CMakeFiles\BinaryTree.dir
+  TARGET_COMPILE_PDB = CMakeFiles\BinaryTree.dir\
+  TARGET_PDB = BinaryTree.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target BinaryTree
+
+
+#############################################
+# Link the executable BinaryTree.exe
+
+build BinaryTree.exe: CXX_EXECUTABLE_LINKER__BinaryTree_Debug CMakeFiles/BinaryTree.dir/5-1BinaryTree.cpp.obj CMakeFiles/BinaryTree.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\BinaryTree.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\BinaryTree.dir\
+  TARGET_FILE = BinaryTree.exe
+  TARGET_IMPLIB = libBinaryTree.dll.a
+  TARGET_PDB = BinaryTree.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target GraphOperations
+
+
+#############################################
+# Order-only phony target for GraphOperations
+
+build cmake_object_order_depends_target_GraphOperations: phony || .
+
+build CMakeFiles/GraphOperations.dir/6-1GraphOperations.cpp.obj: CXX_COMPILER__GraphOperations_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-1GraphOperations.cpp || cmake_object_order_depends_target_GraphOperations
+  DEP_FILE = CMakeFiles\GraphOperations.dir\6-1GraphOperations.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GraphOperations.dir
+  OBJECT_FILE_DIR = CMakeFiles\GraphOperations.dir
+  TARGET_COMPILE_PDB = CMakeFiles\GraphOperations.dir\
+  TARGET_PDB = GraphOperations.pdb
+
+build CMakeFiles/GraphOperations.dir/3-2Queue.cpp.obj: CXX_COMPILER__GraphOperations_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_GraphOperations
+  DEP_FILE = CMakeFiles\GraphOperations.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GraphOperations.dir
+  OBJECT_FILE_DIR = CMakeFiles\GraphOperations.dir
+  TARGET_COMPILE_PDB = CMakeFiles\GraphOperations.dir\
+  TARGET_PDB = GraphOperations.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target GraphOperations
+
+
+#############################################
+# Link the executable GraphOperations.exe
+
+build GraphOperations.exe: CXX_EXECUTABLE_LINKER__GraphOperations_Debug CMakeFiles/GraphOperations.dir/6-1GraphOperations.cpp.obj CMakeFiles/GraphOperations.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\GraphOperations.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\GraphOperations.dir\
+  TARGET_FILE = GraphOperations.exe
+  TARGET_IMPLIB = libGraphOperations.dll.a
+  TARGET_PDB = GraphOperations.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target GraphTraversal
+
+
+#############################################
+# Order-only phony target for GraphTraversal
+
+build cmake_object_order_depends_target_GraphTraversal: phony || .
+
+build CMakeFiles/GraphTraversal.dir/6-2GraphTraversal.cpp.obj: CXX_COMPILER__GraphTraversal_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-2GraphTraversal.cpp || cmake_object_order_depends_target_GraphTraversal
+  DEP_FILE = CMakeFiles\GraphTraversal.dir\6-2GraphTraversal.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GraphTraversal.dir
+  OBJECT_FILE_DIR = CMakeFiles\GraphTraversal.dir
+  TARGET_COMPILE_PDB = CMakeFiles\GraphTraversal.dir\
+  TARGET_PDB = GraphTraversal.pdb
+
+build CMakeFiles/GraphTraversal.dir/3-2Queue.cpp.obj: CXX_COMPILER__GraphTraversal_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_GraphTraversal
+  DEP_FILE = CMakeFiles\GraphTraversal.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GraphTraversal.dir
+  OBJECT_FILE_DIR = CMakeFiles\GraphTraversal.dir
+  TARGET_COMPILE_PDB = CMakeFiles\GraphTraversal.dir\
+  TARGET_PDB = GraphTraversal.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target GraphTraversal
+
+
+#############################################
+# Link the executable GraphTraversal.exe
+
+build GraphTraversal.exe: CXX_EXECUTABLE_LINKER__GraphTraversal_Debug CMakeFiles/GraphTraversal.dir/6-2GraphTraversal.cpp.obj CMakeFiles/GraphTraversal.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\GraphTraversal.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\GraphTraversal.dir\
+  TARGET_FILE = GraphTraversal.exe
+  TARGET_IMPLIB = libGraphTraversal.dll.a
+  TARGET_PDB = GraphTraversal.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target MinimumSpanningTree
+
+
+#############################################
+# Order-only phony target for MinimumSpanningTree
+
+build cmake_object_order_depends_target_MinimumSpanningTree: phony || .
+
+build CMakeFiles/MinimumSpanningTree.dir/6-3MinimumSpanningTree.cpp.obj: CXX_COMPILER__MinimumSpanningTree_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-3MinimumSpanningTree.cpp || cmake_object_order_depends_target_MinimumSpanningTree
+  DEP_FILE = CMakeFiles\MinimumSpanningTree.dir\6-3MinimumSpanningTree.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MinimumSpanningTree.dir
+  OBJECT_FILE_DIR = CMakeFiles\MinimumSpanningTree.dir
+  TARGET_COMPILE_PDB = CMakeFiles\MinimumSpanningTree.dir\
+  TARGET_PDB = MinimumSpanningTree.pdb
+
+build CMakeFiles/MinimumSpanningTree.dir/3-2Queue.cpp.obj: CXX_COMPILER__MinimumSpanningTree_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_MinimumSpanningTree
+  DEP_FILE = CMakeFiles\MinimumSpanningTree.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MinimumSpanningTree.dir
+  OBJECT_FILE_DIR = CMakeFiles\MinimumSpanningTree.dir
+  TARGET_COMPILE_PDB = CMakeFiles\MinimumSpanningTree.dir\
+  TARGET_PDB = MinimumSpanningTree.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MinimumSpanningTree
+
+
+#############################################
+# Link the executable MinimumSpanningTree.exe
+
+build MinimumSpanningTree.exe: CXX_EXECUTABLE_LINKER__MinimumSpanningTree_Debug CMakeFiles/MinimumSpanningTree.dir/6-3MinimumSpanningTree.cpp.obj CMakeFiles/MinimumSpanningTree.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\MinimumSpanningTree.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\MinimumSpanningTree.dir\
+  TARGET_FILE = MinimumSpanningTree.exe
+  TARGET_IMPLIB = libMinimumSpanningTree.dll.a
+  TARGET_PDB = MinimumSpanningTree.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ShortestPath
+
+
+#############################################
+# Order-only phony target for ShortestPath
+
+build cmake_object_order_depends_target_ShortestPath: phony || .
+
+build CMakeFiles/ShortestPath.dir/6-4ShortestPath.cpp.obj: CXX_COMPILER__ShortestPath_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-4ShortestPath.cpp || cmake_object_order_depends_target_ShortestPath
+  DEP_FILE = CMakeFiles\ShortestPath.dir\6-4ShortestPath.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ShortestPath.dir
+  OBJECT_FILE_DIR = CMakeFiles\ShortestPath.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ShortestPath.dir\
+  TARGET_PDB = ShortestPath.pdb
+
+build CMakeFiles/ShortestPath.dir/3-2Queue.cpp.obj: CXX_COMPILER__ShortestPath_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_ShortestPath
+  DEP_FILE = CMakeFiles\ShortestPath.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ShortestPath.dir
+  OBJECT_FILE_DIR = CMakeFiles\ShortestPath.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ShortestPath.dir\
+  TARGET_PDB = ShortestPath.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ShortestPath
+
+
+#############################################
+# Link the executable ShortestPath.exe
+
+build ShortestPath.exe: CXX_EXECUTABLE_LINKER__ShortestPath_Debug CMakeFiles/ShortestPath.dir/6-4ShortestPath.cpp.obj CMakeFiles/ShortestPath.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\ShortestPath.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\ShortestPath.dir\
+  TARGET_FILE = ShortestPath.exe
+  TARGET_IMPLIB = libShortestPath.dll.a
+  TARGET_PDB = ShortestPath.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target TopologicalSort
+
+
+#############################################
+# Order-only phony target for TopologicalSort
+
+build cmake_object_order_depends_target_TopologicalSort: phony || .
+
+build CMakeFiles/TopologicalSort.dir/6-5TopologicalSort.cpp.obj: CXX_COMPILER__TopologicalSort_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-5TopologicalSort.cpp || cmake_object_order_depends_target_TopologicalSort
+  DEP_FILE = CMakeFiles\TopologicalSort.dir\6-5TopologicalSort.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TopologicalSort.dir
+  OBJECT_FILE_DIR = CMakeFiles\TopologicalSort.dir
+  TARGET_COMPILE_PDB = CMakeFiles\TopologicalSort.dir\
+  TARGET_PDB = TopologicalSort.pdb
+
+build CMakeFiles/TopologicalSort.dir/3-2Queue.cpp.obj: CXX_COMPILER__TopologicalSort_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_TopologicalSort
+  DEP_FILE = CMakeFiles\TopologicalSort.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TopologicalSort.dir
+  OBJECT_FILE_DIR = CMakeFiles\TopologicalSort.dir
+  TARGET_COMPILE_PDB = CMakeFiles\TopologicalSort.dir\
+  TARGET_PDB = TopologicalSort.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target TopologicalSort
+
+
+#############################################
+# Link the executable TopologicalSort.exe
+
+build TopologicalSort.exe: CXX_EXECUTABLE_LINKER__TopologicalSort_Debug CMakeFiles/TopologicalSort.dir/6-5TopologicalSort.cpp.obj CMakeFiles/TopologicalSort.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\TopologicalSort.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\TopologicalSort.dir\
+  TARGET_FILE = TopologicalSort.exe
+  TARGET_IMPLIB = libTopologicalSort.dll.a
+  TARGET_PDB = TopologicalSort.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Sort
+
+
+#############################################
+# Order-only phony target for Sort
+
+build cmake_object_order_depends_target_Sort: phony || .
+
+build CMakeFiles/Sort.dir/sort.cpp.obj: CXX_COMPILER__Sort_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/sort.cpp || cmake_object_order_depends_target_Sort
+  DEP_FILE = CMakeFiles\Sort.dir\sort.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Sort.dir
+  OBJECT_FILE_DIR = CMakeFiles\Sort.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Sort.dir\
+  TARGET_PDB = Sort.pdb
+
+build CMakeFiles/Sort.dir/3-2Queue.cpp.obj: CXX_COMPILER__Sort_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_Sort
+  DEP_FILE = CMakeFiles\Sort.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Sort.dir
+  OBJECT_FILE_DIR = CMakeFiles\Sort.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Sort.dir\
+  TARGET_PDB = Sort.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Sort
+
+
+#############################################
+# Link the executable Sort.exe
+
+build Sort.exe: CXX_EXECUTABLE_LINKER__Sort_Debug CMakeFiles/Sort.dir/sort.cpp.obj CMakeFiles/Sort.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Sort.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\Sort.dir\
+  TARGET_FILE = Sort.exe
+  TARGET_IMPLIB = libSort.dll.a
+  TARGET_PDB = Sort.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target AOECriticalPath
+
+
+#############################################
+# Order-only phony target for AOECriticalPath
+
+build cmake_object_order_depends_target_AOECriticalPath: phony || .
+
+build CMakeFiles/AOECriticalPath.dir/6-6AOECriticalPath.cpp.obj: CXX_COMPILER__AOECriticalPath_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/6-6AOECriticalPath.cpp || cmake_object_order_depends_target_AOECriticalPath
+  DEP_FILE = CMakeFiles\AOECriticalPath.dir\6-6AOECriticalPath.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AOECriticalPath.dir
+  OBJECT_FILE_DIR = CMakeFiles\AOECriticalPath.dir
+  TARGET_COMPILE_PDB = CMakeFiles\AOECriticalPath.dir\
+  TARGET_PDB = AOECriticalPath.pdb
+
+build CMakeFiles/AOECriticalPath.dir/3-2Queue.cpp.obj: CXX_COMPILER__AOECriticalPath_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_AOECriticalPath
+  DEP_FILE = CMakeFiles\AOECriticalPath.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AOECriticalPath.dir
+  OBJECT_FILE_DIR = CMakeFiles\AOECriticalPath.dir
+  TARGET_COMPILE_PDB = CMakeFiles\AOECriticalPath.dir\
+  TARGET_PDB = AOECriticalPath.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target AOECriticalPath
+
+
+#############################################
+# Link the executable AOECriticalPath.exe
+
+build AOECriticalPath.exe: CXX_EXECUTABLE_LINKER__AOECriticalPath_Debug CMakeFiles/AOECriticalPath.dir/6-6AOECriticalPath.cpp.obj CMakeFiles/AOECriticalPath.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\AOECriticalPath.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\AOECriticalPath.dir\
+  TARGET_FILE = AOECriticalPath.exe
+  TARGET_IMPLIB = libAOECriticalPath.dll.a
+  TARGET_PDB = AOECriticalPath.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target SequentialBinarySearch
+
+
+#############################################
+# Order-only phony target for SequentialBinarySearch
+
+build cmake_object_order_depends_target_SequentialBinarySearch: phony || .
+
+build CMakeFiles/SequentialBinarySearch.dir/7-1SequentialBinarySearch.cpp.obj: CXX_COMPILER__SequentialBinarySearch_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/7-1SequentialBinarySearch.cpp || cmake_object_order_depends_target_SequentialBinarySearch
+  DEP_FILE = CMakeFiles\SequentialBinarySearch.dir\7-1SequentialBinarySearch.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SequentialBinarySearch.dir
+  OBJECT_FILE_DIR = CMakeFiles\SequentialBinarySearch.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialBinarySearch.dir\
+  TARGET_PDB = SequentialBinarySearch.pdb
+
+build CMakeFiles/SequentialBinarySearch.dir/3-2Queue.cpp.obj: CXX_COMPILER__SequentialBinarySearch_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_SequentialBinarySearch
+  DEP_FILE = CMakeFiles\SequentialBinarySearch.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SequentialBinarySearch.dir
+  OBJECT_FILE_DIR = CMakeFiles\SequentialBinarySearch.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialBinarySearch.dir\
+  TARGET_PDB = SequentialBinarySearch.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target SequentialBinarySearch
+
+
+#############################################
+# Link the executable SequentialBinarySearch.exe
+
+build SequentialBinarySearch.exe: CXX_EXECUTABLE_LINKER__SequentialBinarySearch_Debug CMakeFiles/SequentialBinarySearch.dir/7-1SequentialBinarySearch.cpp.obj CMakeFiles/SequentialBinarySearch.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\SequentialBinarySearch.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\SequentialBinarySearch.dir\
+  TARGET_FILE = SequentialBinarySearch.exe
+  TARGET_IMPLIB = libSequentialBinarySearch.dll.a
+  TARGET_PDB = SequentialBinarySearch.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target BST
+
+
+#############################################
+# Order-only phony target for BST
+
+build cmake_object_order_depends_target_BST: phony || .
+
+build CMakeFiles/BST.dir/7-2BST.cpp.obj: CXX_COMPILER__BST_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/7-2BST.cpp || cmake_object_order_depends_target_BST
+  DEP_FILE = CMakeFiles\BST.dir\7-2BST.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BST.dir
+  OBJECT_FILE_DIR = CMakeFiles\BST.dir
+  TARGET_COMPILE_PDB = CMakeFiles\BST.dir\
+  TARGET_PDB = BST.pdb
+
+build CMakeFiles/BST.dir/3-2Queue.cpp.obj: CXX_COMPILER__BST_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_BST
+  DEP_FILE = CMakeFiles\BST.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BST.dir
+  OBJECT_FILE_DIR = CMakeFiles\BST.dir
+  TARGET_COMPILE_PDB = CMakeFiles\BST.dir\
+  TARGET_PDB = BST.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target BST
+
+
+#############################################
+# Link the executable BST.exe
+
+build BST.exe: CXX_EXECUTABLE_LINKER__BST_Debug CMakeFiles/BST.dir/7-2BST.cpp.obj CMakeFiles/BST.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\BST.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\BST.dir\
+  TARGET_FILE = BST.exe
+  TARGET_IMPLIB = libBST.dll.a
+  TARGET_PDB = BST.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target SortAlgorithms
+
+
+#############################################
+# Order-only phony target for SortAlgorithms
+
+build cmake_object_order_depends_target_SortAlgorithms: phony || .
+
+build CMakeFiles/SortAlgorithms.dir/8sort.cpp.obj: CXX_COMPILER__SortAlgorithms_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/8sort.cpp || cmake_object_order_depends_target_SortAlgorithms
+  DEP_FILE = CMakeFiles\SortAlgorithms.dir\8sort.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SortAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles\SortAlgorithms.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SortAlgorithms.dir\
+  TARGET_PDB = SortAlgorithms.pdb
+
+build CMakeFiles/SortAlgorithms.dir/3-2Queue.cpp.obj: CXX_COMPILER__SortAlgorithms_unscanned_Debug D$:/Desktop/DataStructer-Reviewing/3-2Queue.cpp || cmake_object_order_depends_target_SortAlgorithms
+  DEP_FILE = CMakeFiles\SortAlgorithms.dir\3-2Queue.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SortAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles\SortAlgorithms.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SortAlgorithms.dir\
+  TARGET_PDB = SortAlgorithms.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target SortAlgorithms
+
+
+#############################################
+# Link the executable SortAlgorithms.exe
+
+build SortAlgorithms.exe: CXX_EXECUTABLE_LINKER__SortAlgorithms_Debug CMakeFiles/SortAlgorithms.dir/8sort.cpp.obj CMakeFiles/SortAlgorithms.dir/3-2Queue.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\SortAlgorithms.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\SortAlgorithms.dir\
+  TARGET_FILE = SortAlgorithms.exe
+  TARGET_IMPLIB = libSortAlgorithms.dll.a
+  TARGET_PDB = SortAlgorithms.pdb
 
 
 #############################################
@@ -254,7 +902,43 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build DSCPP: phony DSCPP.exe
+build AOECriticalPath: phony AOECriticalPath.exe
+
+build BST: phony BST.exe
+
+build BinaryTree: phony BinaryTree.exe
+
+build ExpressionStack: phony ExpressionStack.exe
+
+build FibonacciNonRecursive: phony FibonacciNonRecursive.exe
+
+build GraphOperations: phony GraphOperations.exe
+
+build GraphTraversal: phony GraphTraversal.exe
+
+build LinkedList: phony LinkedList.exe
+
+build MinimumSpanningTree: phony MinimumSpanningTree.exe
+
+build QueueBinaryTreeLevelTraversal: phony QueueBinaryTreeLevelTraversal.exe
+
+build SequentialBinarySearch: phony SequentialBinarySearch.exe
+
+build SequentialList: phony SequentialList.exe
+
+build ShortestPath: phony ShortestPath.exe
+
+build SmartPointer: phony SmartPointer.exe
+
+build Sort: phony Sort.exe
+
+build SortAlgorithms: phony SortAlgorithms.exe
+
+build Stack: phony Stack.exe
+
+build StringKMP: phony StringKMP.exe
+
+build TopologicalSort: phony TopologicalSort.exe
 
 # =============================================================================
 # Folder targets.
@@ -264,7 +948,7 @@ build DSCPP: phony DSCPP.exe
 #############################################
 # Folder: D:/Desktop/DataStructer-Reviewing/cmake-build-debug
 
-build all: phony DSCPP.exe
+build all: phony SmartPointer.exe SequentialList.exe LinkedList.exe Stack.exe ExpressionStack.exe FibonacciNonRecursive.exe QueueBinaryTreeLevelTraversal.exe StringKMP.exe BinaryTree.exe GraphOperations.exe GraphTraversal.exe MinimumSpanningTree.exe ShortestPath.exe TopologicalSort.exe Sort.exe AOECriticalPath.exe SequentialBinarySearch.exe BST.exe SortAlgorithms.exe
 
 # =============================================================================
 # Built-in targets

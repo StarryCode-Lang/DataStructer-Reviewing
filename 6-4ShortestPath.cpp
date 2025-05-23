@@ -51,7 +51,10 @@ void Dijkstra_Matrix(const MGraph &G, int start, int dist[], int path[]) {
             }
         }
     }
-    visited = {false};
+    // 将 visited = {false}; 替换为循环重置
+    for (int i = 0; i < G.vexnum; i++) {
+        visited[i] = false;
+    }
 }
 
 // 使用优先队列优化的Dijkstra算法 - 适用于邻接表表示的图
@@ -97,7 +100,10 @@ void Dijkstra_List(const ALGraph &G, int start, int dist[], int path[]) {
             }
         }
     }
-    visited = {false};
+    // 将 visited = {false}; 替换为循环重置
+    for (int i = 0; i < G.vexnum; i++) {
+        visited[i] = false;
+    }
 }
 
 // 打印Dijkstra算法的结果
