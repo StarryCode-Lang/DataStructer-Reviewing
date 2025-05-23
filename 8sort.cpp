@@ -40,9 +40,9 @@ void BinaryInsertSort(int A[], int n) {
 
 // 3. 希尔排序
 void ShellSort(int A[], int n) {
-    int dk, i, j;
-    for (dk = n / 2; dk >= 1; dk = dk / 2) {
-        for (i = dk + 1; i <= n; i++) {
+    int j;
+    for (int dk = n / 2; dk >= 1; dk = dk / 2) {
+        for (int i = dk + 1; i <= n; i++) {
             if (A[i] < A[i - dk]) {
                 A[0] = A[i];
                 for (j = i - dk; j > 0 && A[0] < A[j]; j -= dk) {
